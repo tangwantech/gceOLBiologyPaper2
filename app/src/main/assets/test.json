@@ -1,0 +1,249 @@
+{
+  "appTitle": "OL Biology Paper 2",
+  "examTypes":[
+    {
+      "title": "Topics",
+      "contents": [
+        {
+          "title": "Nutrition in plants",
+          "exercises": [
+            {
+              "title": "Exercise 1",
+              "questions": [
+                {
+                  "question": "Define the term photosynthesis",
+                  "type": "DEFINITION",
+                  "definition": {
+                    "correctAnswer": ["Photosynthesis is a process by which", "all green plants, some bacteria and algae", "manufacture organic food substances", "such as glucose", "by combining inorganic raw materials such as carbon dioxide and water,", "using sunlight energy trapped by chlorophyll,", "with the release of oxygen gas as a waste product."],
+                    "distractors": ["all green plants, animals and fungi", "manufacture inorganic food substances", "by combining organic raw materials such as glucose and oxygen", "with the release of carbon dioxide as a waste product", "using sunlight energy trapped by stomata,"]
+                  },
+                  "differentiate": null,
+                  "experiment": null,
+                  "unOrderedType": null,
+                  "orderedType": null,
+                  "genetics": null,
+                  "diagram": null
+                },
+                {
+                  "question": "State the adaptations of the leaf to its photosynthetic function",
+                  "type": "UNORDERED",
+                  "definition": null,
+                  "differentiate": null,
+                  "experiment": null,
+                  "unOrderedType": {
+                    "correctAnswer": ["The lamina of the leaf is broad and flat to increase surface area for the absorption of sunlight", "The cuticle is transparent to allow easy penetration of sunlight to the mesophyll cells", "The mesophyll cells contain chloroplasts with chlorophyll which help to trap sunlight energy for photosynthesis", "Numerous stomata on both surfaces of the leaf enable the exchange of carbon dioxide and oxygen with the atmosphere"],
+                    "distractors": ["The upper surface of the leaf is opaque to allow easy penetration of sunlight to the mesophyll cells", "Mesophyll cells lack chloroplast to to allow sunlight to pass through to the stomata"]
+                  },
+                  "orderedType": null,
+                  "genetics": null,
+                  "diagram": null
+                },
+                {
+                  "question": "Differentiate between photosynthesis and respiration ",
+                  "type": "DIFFERENTIATE",
+                  "definition": null,
+                  "differentiate": {
+                    "columnHeaders":["Photosynthesis", "Respiration"],
+                    "correctAnswers": {
+                      "Requires light": "Does not require light",
+                      "Uses energy in the form of ATP": "Produces energy in the form of ATP",
+                      "Takes place in the chloroplast": "Takes place in the cytoplasm and mitochondrion",
+                      "Synthesizes glucose": "Breaks down glucose",
+                      "Uses carbon dioxide and water": "Produces carbon dioxide and water",
+                      "Produces oxygen": "May use oxygen such as during aerobic respiration",
+                      "Occurs in all green plants, some bacteria and algae": "Occurs in all living organism",
+                      "It is an anabolic process": "It is a catabolic process"
+                    },
+                    "distractors": ["Takes place only in algae", "Takes place only in animals", "Takes place only at night"]
+                  },
+                  "experiment": null,
+                  "unOrderedType": null,
+                  "orderedType": null,
+                  "genetics": null,
+                  "diagram": null
+                },
+                {
+                  "question": "Describe an experiment to show that oxygen is produced during photosynthesis by green plants",
+                  "type": "EXPERIMENT",
+                  "definition": null,
+                  "differentiate": null,
+                  "experiment": {
+                    "aim": {
+                      "correctAnswer": "To show that oxygen is produced during photosynthesis by green plants",
+                      "distractors": ["An experiment to show that oxygen is produced during photosynthesis", "To show that oxygen is necessary for photosynthesis", "To show that Carbon dioxide is produced during photosynthesis"]
+                    },
+                    "requirements": {
+                      "correctAnswer": ["aquatic green plant e.g Elodia", "test tube", "funnel", "beaker", "Sodium hydrogen carbonate solution", "Glowing splint", "support"],
+                      "distractors": ["Sodium hydroxide solution", "White tile", "polythene bag, Iodine solution"]
+                    },
+                    "procedure": {
+                      "setupImg": "Test_oxygen_is_produced_during_photosynthesis_by_green_plant.jpg",
+                      "setupTitle": "Setup to show that oxygen is produced during photosynthesis by green plant e.g Elodea",
+                      "diagramLabels": {
+                        "A": "Elodea",
+                        "B": "Funnel",
+                        "C": "Test tube",
+                        "D": "Support",
+                        "E": "solution of Sodium hydrogen carbonate"
+                      },
+                      "stepsInProcedure": {
+                        "correctAnswer": [
+                          "The test experiment is setup as shown in the diagram",
+                          "Another similar experiment is setup but without an aquatic green plant. This serves as the control experiment",
+                          "The support keeps the funnel off the bottom of the beaker to ensure that there is free circulation of sodium hydrogen carbonate solution",
+                          "Sodium hydrogen carbonate solution is used instead of pure water to produce enough carbon dioxide",
+                          "A test tube is inverted over the funnel to collect any gas produced during the course of the experiment.",
+                          "Both setups are exposed to sunlight for at least 6 hours.",
+                          "After 6 hours, the test tubes from both experiments are removed and a glowing splint is inserted into each."
+
+                        ],
+                        "wrongAnswer": [
+                          "The test experiment is setup as shown in the diagram",
+                          "Another similar experiment is setup using an aquatic green plant. This serves as the control experiment",
+                          "The support keeps the funnel off the bottom of the beaker to ensure that there is free circulation of sodium hydroxide solution",
+                          "Sodium hydroxide solution is used instead of water to produce enough carbon dioxide",
+                          "A test tube is inverted over the funnel to collect any gas produced during the course of the experiment.",
+                          "Both setups are kept in darkness for 48 hours.",
+                          "After 48 hours, both test tubes are removed and a glowing splint is inserted into each."
+                        ]
+                      }
+                    },
+                    "Result": {
+                      "correctAnswer": "When the glowing splint was inserted into the test tube from the test experiment, it rekindled while the glowing splint inserted into the test tube from the control experiment did not rekindle.\n\n In the test experiment, the aquatic green plant absorbed sunlight energy which it used to split water into oxygen gas and hydrogen ions. The oxygen gas was then lost from the plant as a waste product and collected in the test tube. It is the oxygen gas which cause the glowing splint to rekindle.\n\n In the control experiment, there was no green plant to absorb sunlight energy for use in the photolysis of water. Hence, no oxygen gas was produced, so the glowing splint did not rekindle",
+                      "wrongAnswer": "When the glowing splint was inserted into the test tube from the control experiment, it rekindled while the glowing splint inserted into the test tube from the test experiment did not rekindle.\n\n In the control experiment, the sodium hydrogen carbonate solution absorbed sunlight energy which it used to split water into oxygen gas and hydrogen ions. The oxygen gas was then lost from the solution and collected in the test tube. It is the oxygen gas which cause the glowing splint to rekindle.\n\n In the control experiment, there was no green plant to absorb sunlight energy for use in the photolysis of water. Hence, no oxygen gas was produced, so the glowing splint did not burst into flame"
+                    },
+                    "conclusion": {
+                      "correctAnswer": "Oxygen is produced during photosynthesis by green plants",
+                      "distractors": ["Carbon dioxide is produced during photosynthesis by green plants", "Carbon dioxide is necessary for photosynthesis", "Oxygen is necessary for photosynthesis"]
+                    }
+                  },
+                  "unOrderedType": null,
+                  "orderedType": null,
+                  "genetics": null,
+                  "diagram": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Variety of living things",
+          "exercises": [
+            {
+              "title": "Exercise 1",
+              "questions": [
+                {
+                  "question": "Draw a large labelled diagram of a named bony fish and state the main functions of the parts labelled",
+                  "type": "DIAGRAM",
+                  "definition":null,
+                  "differentiate": null,
+                  "experiment": null,
+                  "unOrderedType": null,
+                  "orderedType": null,
+                  "genetics": null,
+                  "diagram": {
+                    "imageWithLabelLetters": "tilapiaWithLabelLetters.jpg",
+                    "diagramLabelNames":{
+                      "A": "Eye",
+                      "B": "Mouth",
+                      "C": "Operculum",
+                      "D": "Caudal fin"
+                    },
+                    "labelDistractors": ["Legs", "Feathers", "Nuchal crest"],
+                    "functionOfParts": {
+                      "Eye": "For vision",
+                      "Mouth": "For feeding, opens to allows water to enter during breathing",
+                      "Operculum": "protects the gills, allows water to pass out from the gill chambers during breathing",
+                      "Caudal fin": "Pushes the fish forward"
+
+                    },
+                    "functionOfPartsDistractors": ["used for flying", "provide insulation"]
+                  }
+                },
+                {
+                  "question": "Draw a large labelled diagram of an Agama lizard",
+                  "type": "DIAGRAM",
+                  "definition":null,
+                  "differentiate": null,
+                  "experiment": null,
+                  "unOrderedType": null,
+                  "orderedType": null,
+                  "genetics": null,
+                  "diagram": {
+                    "imageWithLabelLetters": "tilapiaWithLabelLetters.jpg",
+                    "diagramLabelNames":{
+                      "A": "Eye",
+                      "B": "Mouth",
+                      "C": "Operculum",
+                      "D": "Caudal fin"
+                    },
+                    "labelDistractors": ["Legs", "Feathers", "Nuchal crest"],
+                    "functionOfParts": null,
+                    "functionOfPartsDistractors": null
+                  }
+                }
+              ]
+            }
+          ]
+        }
+
+      ]
+
+    },
+    {
+      "title": "Past GCE",
+      "contents": [
+        {
+          "title": "Past GCE 1",
+          "exercises": [
+            {
+              "title": "Exercise 1",
+              "questions": [
+                {
+                  "question": "Describe an experiment to show that green plants require sunlight for photosyntheis",
+                  "type": "EXPERIMENT",
+                  "definition": null,
+                  "differentiate": null,
+                  "experiment": null,
+                  "unOrderedType": null,
+                  "orderedType": null,
+                  "genetics": null,
+                  "diagram": null
+                }
+              ]
+            }
+          ]
+        }
+
+      ]
+    },
+    {
+      "title": "Miscellaneous",
+      "contents": [
+        {
+          "title": "Mock 1",
+          "exercises": [
+            {
+              "title": "Exercise 1",
+              "questions": [
+                {
+                  "question": "Draw a large and well labeled diagram of the external structure of a bony fish",
+                  "type": " DIAGRAM",
+                  "definition": null,
+                  "differentiate": null,
+                  "experiment": null,
+                  "unOrderedType": null,
+                  "orderedType": null,
+                  "genetics": null,
+                  "diagram": null
+                }
+              ]
+            }
+          ]
+        }
+
+      ]
+    }
+  ]
+
+}

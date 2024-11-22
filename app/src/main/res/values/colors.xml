@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+<!--    <color name="color_primary">#009688</color>-->
+<!--    <color name="color_primary_variant">#00766B</color>-->
+
+    <color name="color_primary">#01766B</color>
+    <color name="color_primary_variant">#01766B</color>
+
+    <color name="colorAccent">#FFC107</color>
+    <color name="color_on_primary">@color/white</color>
+
+    <color name="mtn">#C2A54E</color>
+    <color name="orange">#F18764</color>
+
+    <color name="color_red">#C71C1C</color>
+    <color name="color_green">#29892C</color>
+
+    <color name="color_tab">@color/color_primary</color>
+    <color name="colorTabIndicator">#FFC107</color>
+    <color name="tab_color">#E7C754</color>
+
+    <color name="defIemBackground">@color/color_primary</color>
+
+</resources>

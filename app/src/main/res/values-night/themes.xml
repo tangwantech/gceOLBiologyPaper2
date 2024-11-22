@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.GCCEOLInteractivePaper2" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+
+    <style name="CustomTabStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:textColor">@color/color_on_primary</item>
+        <item name="android:background">@color/color_primary_variant</item>
+        <item name="tabIndicatorColor">@color/tab_color</item>
+        <item name="tabTextColor">@color/color_on_primary</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabIndicatorFullWidth">true</item>
+        <item name="tabInlineLabel">true</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabIndicatorHeight">4dp</item>
+    </style>
+</resources>

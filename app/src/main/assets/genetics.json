@@ -1,0 +1,65 @@
+{
+  "exercises": [
+    {
+      "exercise": "1",
+      "questions": [
+        {
+          "question": "Replace with question",
+          "definition": null,
+          "experiment": null,
+          "geneticCross": {
+
+          },
+            "genotypes": {
+              "RW": {
+                "genotype": "RW",
+                "natureOfGenotype": "Heterozygous",
+                "phenotype": "Patches of red and white on wings",
+                "possibleGametes": ["R", "W"]
+              },
+              "RR": {
+                "natureOfGenotype": "Homozygous",
+                "phenotype": "Red-Winged",
+                "possibleGametes": ["R", "R"]
+              },
+              "WW": {
+                "natureOfGenotype": "Homozygous",
+                "phenotype": "White-winged",
+                "possibleGametes": ["W", "W"]
+              }
+            },
+            "distractors": {
+              "alleles": ["r", "w"],
+              "genotypes": ["Rr", "ww", "rw", "rW", "Rw", "rr"]
+            },
+            "alleles": {
+              "W": {
+                "phenotype": "White-winged",
+                "natureOfAllele": "Co-dominant"
+              },
+              "R": {
+                "phenotype": "Red-Winged",
+                "natureOfAllele": "Co-dominant"
+              },
+            "crossingParents":{
+              "parentalPhenotypes": ["Red-winged", "White-winged"],
+              "parentalGenotypes": {
+                "Red-winged": "RR",
+                "White-winged": "WW"
+              },
+              "gametes": {
+                "RR": ["R", "R"],
+                "WW": ["W", "W"]
+              },
+              "randomFertilization": {
+                "genotypes": ["RW", "RW", "RW", "RW"]
+
+              }
+            }
+          }
+
+        }
+      ]
+    }
+  ]
+}

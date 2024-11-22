@@ -1,0 +1,60 @@
+{
+  "title": "Variety of living things",
+  "exercises": [
+    {
+      "title": "Exercise 1",
+      "questions": [
+        {
+          "question": "Draw a large labelled diagram of a named bony fish and state the main functions of the parts labelled",
+          "type": "DIAGRAM",
+          "definition":null,
+          "differentiate": null,
+          "experiment": null,
+          "unOrderedType": null,
+          "orderedType": null,
+          "genetics": null,
+          "diagram": {
+            "imageWithLabelLetters": "tilapiaWithLabelLetters.jpg",
+            "diagramLabelNames":{
+              "A": "Eye",
+              "B": "Mouth",
+              "C": "Operculum",
+              "D": "Caudal fin"
+            },
+            "labelDistractors": ["Legs", "Feathers", "Nuchal crest"],
+            "functionOfParts": {
+              "Eye": "For vision",
+              "Mouth": "For feeding, opens to allows water to enter during breathing",
+              "Operculum": "protects the gills, allows water to pass out from the gill chambers during breathing",
+              "Caudal fin": "Pushes the fish forward"
+
+            },
+            "functionOfPartsDistractors": ["used for flying", "provide insulation"]
+          }
+        },
+        {
+          "question": "Draw a large labelled diagram of an Agama lizard",
+          "type": "DIAGRAM",
+          "definition":null,
+          "differentiate": null,
+          "experiment": null,
+          "unOrderedType": null,
+          "orderedType": null,
+          "genetics": null,
+          "diagram": {
+            "imageWithLabelLetters": "tilapiaWithLabelLetters.jpg",
+            "diagramLabelNames":{
+              "A": "Eye",
+              "B": "Mouth",
+              "C": "Operculum",
+              "D": "Caudal fin"
+            },
+            "labelDistractors": ["Legs", "Feathers", "Nuchal crest"],
+            "functionOfParts": null,
+            "functionOfPartsDistractors": null
+          }
+        }
+      ]
+    }
+  ]
+}

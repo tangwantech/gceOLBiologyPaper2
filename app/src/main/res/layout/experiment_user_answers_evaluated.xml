@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="4dp">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:contentPadding="4dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="56dp"
+            android:orientation="horizontal"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
+            <TextView
+                android:id="@+id/tvAimLabel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/aim"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvUserAim"
+                app:layout_constraintHorizontal_weight=".1"/>
+           <TextView
+               android:id="@+id/tvUserAim"
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:gravity="center_vertical"
+               android:text="Replace with user aim"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintStart_toEndOf="@id/tvAimLabel"
+               app:layout_constraintEnd_toStartOf="@id/frameRemark"
+               app:layout_constraintHorizontal_weight=".8"/>
+            <FrameLayout
+                android:id="@+id/frameRemark"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvUserAim"
+                app:layout_constraintHorizontal_weight=".1">
+                <ImageView
+                    android:id="@+id/imgCheckAim"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_check"
+                    android:visibility="gone"/>
+                <ImageView
+                    android:id="@+id/imgWrongAim"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_wrong"
+                    android:visibility="gone"/>
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/loRequirement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentPadding="8dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="4dp"
+        android:visibility="visible">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/requirements"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:textStyle="bold"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRequirements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/experiment_requirements_item_and_remark"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/loProcedure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentPadding="8dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="4dp"
+        android:visibility="visible">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/procedure"
+                android:textStyle="bold"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bony_fish_june_2022"
+                android:visibility="visible"/>
+            <TextView
+                android:id="@+id/tvSetupDiagramTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Replace with setup title"
+                android:gravity="center_horizontal"/>
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDiagramLabels"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/experiment_diagram_label_item_remark"
+                android:visibility="visible"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvUserProcedure"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Replace with user procedure"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/frameRemarkProcedure"
+                    app:layout_constraintHorizontal_weight=".9"/>
+
+
+                <FrameLayout
+                    android:id="@+id/frameRemarkProcedure"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvUserProcedure"
+                    app:layout_constraintHorizontal_weight=".1">
+                    <ImageView
+                        android:id="@+id/imgCheckProcedure"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_check"
+                        android:layout_gravity="center_vertical"
+                        android:visibility="gone" />
+                    <ImageView
+                        android:id="@+id/imgWrongProcedure"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_wrong"
+                        android:layout_gravity="center_vertical"
+                        android:visibility="gone"
+                        />
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/loResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentPadding="4dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="4dp"
+        android:visibility="visible">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/observation_or_result"
+                android:textStyle="bold"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvUserObservation"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Replace with user observation or result"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/frameRemarkObservation"
+                    app:layout_constraintHorizontal_weight=".9"/>
+
+
+                <FrameLayout
+                    android:id="@+id/frameRemarkObservation"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvUserObservation"
+                    app:layout_constraintHorizontal_weight=".1">
+                    <ImageView
+                        android:id="@+id/imgCheckObservation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_check"
+                        android:layout_gravity="center_vertical"
+                        android:visibility="gone" />
+                    <ImageView
+                        android:id="@+id/imgWrongObservation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_wrong"
+                        android:layout_gravity="center_vertical"
+                        android:visibility="gone"
+                        />
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/loConclusion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentPadding="4dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="4dp"
+        android:visibility="visible">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/conclusion"
+                android:textStyle="bold"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvUserConclusion"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Replace with user conclusion"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/frameRemarkConclusion"
+                    app:layout_constraintHorizontal_weight=".9"/>
+
+
+                <FrameLayout
+                    android:id="@+id/frameRemarkConclusion"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvUserConclusion"
+                    app:layout_constraintHorizontal_weight=".1">
+                    <ImageView
+                        android:id="@+id/imgCheckConclusion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_check"
+                        android:layout_gravity="center_vertical"
+                        android:visibility="gone" />
+                    <ImageView
+                        android:id="@+id/imgWrongConclusion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_wrong"
+                        android:layout_gravity="center_vertical"
+                        android:visibility="gone"
+                        />
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

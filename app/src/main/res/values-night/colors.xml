@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mtn">#C2A54E</color>
+    <color name="orange">#F18764</color>
+
+    <color name="color_red">#C71C1C</color>
+    <color name="color_green">#29892C</color>
+
+    <color name="color_tab">@color/color_primary</color>
+    <color name="colorTabIndicator">#FFC107</color>
+    <color name="tab_color">#E7C754</color>
+</resources>

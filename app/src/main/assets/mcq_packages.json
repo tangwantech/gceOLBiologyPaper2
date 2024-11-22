@@ -1,0 +1,16 @@
+{
+  "packages": [
+    {
+      "packageName": "MCQ 12H",
+      "price": "5",
+      "duration": 12,
+      "isChecked": false
+    },
+    {
+      "packageName": "MCQ 24H",
+      "price": "100",
+      "duration": 24,
+      "isChecked": false
+    }
+  ]
+}
