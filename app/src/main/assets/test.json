@@ -108,7 +108,7 @@
                         ]
                       }
                     },
-                    "Result": {
+                    "result": {
                       "correctAnswer": "When the glowing splint was inserted into the test tube from the test experiment, it rekindled while the glowing splint inserted into the test tube from the control experiment did not rekindle.\n\n In the test experiment, the aquatic green plant absorbed sunlight energy which it used to split water into oxygen gas and hydrogen ions. The oxygen gas was then lost from the plant as a waste product and collected in the test tube. It is the oxygen gas which cause the glowing splint to rekindle.\n\n In the control experiment, there was no green plant to absorb sunlight energy for use in the photolysis of water. Hence, no oxygen gas was produced, so the glowing splint did not rekindle",
                       "wrongAnswer": "When the glowing splint was inserted into the test tube from the control experiment, it rekindled while the glowing splint inserted into the test tube from the test experiment did not rekindle.\n\n In the control experiment, the sodium hydrogen carbonate solution absorbed sunlight energy which it used to split water into oxygen gas and hydrogen ions. The oxygen gas was then lost from the solution and collected in the test tube. It is the oxygen gas which cause the glowing splint to rekindle.\n\n In the control experiment, there was no green plant to absorb sunlight energy for use in the photolysis of water. Hence, no oxygen gas was produced, so the glowing splint did not burst into flame"
                     },
@@ -151,10 +151,10 @@
                     },
                     "labelDistractors": ["Legs", "Feathers", "Nuchal crest"],
                     "functionOfParts": {
-                      "Eye": "For vision",
-                      "Mouth": "For feeding, opens to allows water to enter during breathing",
-                      "Operculum": "protects the gills, allows water to pass out from the gill chambers during breathing",
-                      "Caudal fin": "Pushes the fish forward"
+                      "A": "For vision",
+                      "B": "For feeding, opens to allows water to enter during breathing",
+                      "C": "protects the gills, allows water to pass out from the gill chambers during breathing",
+                      "D": "Pushes the fish forward"
 
                     },
                     "functionOfPartsDistractors": ["used for flying", "provide insulation"]
@@ -185,6 +185,87 @@
               ]
             }
           ]
+        },
+        {
+          "title": "Genetics",
+          "exercises": [
+            {
+              "title": "Exercise 1",
+              "questions": [
+                {
+                  "question": "In a certain garden of bean plants, the pod colour is either red or green. When a pure breeding bean plant with red pods was crossed with another pure breeding bean plant with green pods, all the offspring produced red pods. When the offspring were allowed to self pollinate, the following results were obtained; 580 bean plants had red pods while 206 had green pods. Explain the genetics of this cross using appropriate symbols and diagrams",
+                  "type": "GENETIC CROSS",
+                  "definition": null,
+                  "differentiate": null,
+                  "experiment": null,
+                  "unOrderedType": null,
+                  "orderedType": null,
+                  "genetics": {
+                    "alleleDefinition":{
+                      "Let R be the dominant allele for red flower": "Let R be the dominant allele for red flower",
+                      "Let r be the recessive allele for white flower": "Let r be the recessive allele for white flower"
+                    },
+                    "crosses":[
+                      {
+                        "title": "Crossing pure breeding red flowered plant with pure breeding white flowered plant",
+                        "parentalPhenotypes": ["Red flower", "White flower"],
+                        "parentalGenotypes": ["RR", "rr"],
+                        "gametes": [["R", "R"], ["r", "r"]],
+                        "gameteProportions": [["1/2", "1/2"],["1/2", "1/2"]],
+                        "offspringGenotypes": "Rr,\t Rr,\t Rr,\t Rr",
+                        "offspringPhenotypes": "All red flowered plants",
+                        "offspringPhenotypicProportions": null,
+                        "offspringPhenotypicRatio": "All red flowered plants"
+                      },
+
+                      {
+                        "title": "Crossing red flowered F1 plants amongst themselves",
+                        "parentalPhenotypes": ["Red flower", "Red flower"],
+                        "parentalGenotypes": ["Rr", "Rr"],
+                        "gametes": [["R", "r"], ["R", "r"]],
+                        "gameteProportions": [["1/2", "1/2"],["1/2", "1/2"]],
+                        "offspringGenotypes": "RR,\t Rr,\t Rr,\t rr",
+                        "offspringPhenotypes": "3 red flowered plants and 1 white flowered plant",
+                        "offspringPhenotypicProportions": "3/4 red flowered plants and 1/4 white flowered plant",
+                        "offspringPhenotypicRatio": "3 red flowered plants: 1 white flowered plant"
+                      }
+
+                    ],
+                    "others": {
+                      "definitionOfAlleles": [
+                        "Let R be the dominant allele for red flower",
+                        "Let r be the recessive allele for white flower",
+                        "Let W be the dominant allele for white flower",
+                        "Let w be the recessive allele for white flower"
+                      ],
+                      "alleles": [
+                        "R",
+                        "r",
+                        "W",
+                        "w"],
+                      "phenotypes": ["Red flower", "White flower"],
+                      "genotypes": ["RR", "Rr", "WW", "Ww", "RW", "Wr", "rr"],
+                      "offspringGenotype": [
+                        "Rr,\t Rr,\t Rr,\t Rr",
+                        "RR,\t Rr,\t Rr,\t rr",
+                        "Rr,\t Rr,\t Rr,\t rr",
+                        "RR,\t RW,\t RW,\t WW",
+                        "Rr,\t Rw,\t Rw,\t ww"
+                      ],
+                      "offspringPhenotype": ["3 red flowered plants and 1 white flowered plant", "1 red flowered plant and 3 white flowered plant", "2 red flowered plants and 2 white flowered plants", "All red flowered plants", "All white flowered plants"],
+                      "offspringPhenotypicProportions": ["3/4 red flowered plants and 1/4 white flowered plant", "1/4 red flowered plants and 3/4 white flowered plants", "1/2 red flowered plants and 1/2 white flowered plants"],
+                      "offspringPhenotypicRatio": ["3 red flowered plants: 1 white flowered plant", "1 red flowered plant : 3 white flowered plant", "1 red flowered plants : 1 white flowered plants", "All red flowered plants", "All white flowered plants"]
+
+                    }
+                  },
+                  "diagram": null
+                }
+
+              ]
+            }
+
+          ]
+
         }
 
       ]

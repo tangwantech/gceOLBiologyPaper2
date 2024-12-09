@@ -11,7 +11,7 @@ import com.example.gcceolinteractivepaper2.R
 
 class ExamTypeRecyclerViewAdapter(
     private val context: Context,
-    private val examItemsData: ArrayList<String>,
+    private val examItemsData: List<String>,
     private val listener: OnRecyclerItemClickListener
 ) : RecyclerView.Adapter<ExamTypeRecyclerViewAdapter.ViewHolder>(){
 

@@ -16,7 +16,6 @@ class DiagramFragmentViewModel: ViewModel() {
         this.bundleIndices = bundleIndices
         setQuestionData()
 
-
     }
 
     private fun setQuestionData() {
@@ -26,7 +25,7 @@ class DiagramFragmentViewModel: ViewModel() {
             bundleIndices.getInt(AppConstants.EXERCISE_INDEX),
             bundleIndices.getInt(AppConstants.QUESTION_INDEX)
         )
-        initUserAnswerForLabelLettersAndNames()
+        initUserAnswerForLabelNameAndFunction()
         setupCorrectAnswersToPartsAndFunctions()
 //        initUserAnswersForLabelNameAndFunction()
     }
@@ -35,17 +34,28 @@ class DiagramFragmentViewModel: ViewModel() {
         return questionData.question
     }
 
-    private fun initUserAnswerForLabelLettersAndNames(){
+    private fun initUserAnswerForLabelNameAndFunction(){
         for (letter in getLabelLettersOnly()){
-            userAnswersForLabelNameAndFunction.add(DiagramLabelItem(letter))
+            val d = DiagramLabelItem(letter)
+
+            if (questionData.diagram!!.functionOfParts != null){
+                d.selectedFunction = ""
+            }
+            userAnswersForLabelNameAndFunction.add(d)
         }
     }
 
     private fun setupCorrectAnswersToPartsAndFunctions(){
         for (letter in getLabelLettersOnly()){
             val correctPart = questionData.diagram!!.diagramLabelNames[letter]
-            val correctFunction = questionData.diagram!!.functionOfParts?.get(letter)
-            correctAnswersToPartsAndFunctions.add(DiagramLabelItem(letter, selectedLabelName = correctPart!!, selectedFunction = correctFunction, ))
+            var correctFunction: String? = null
+            if (questionData.diagram!!.functionOfParts != null){
+                correctFunction = questionData.diagram!!.functionOfParts!![letter]
+
+            }
+
+            val d = DiagramLabelItem(letter, selectedLabelName = correctPart!!, selectedFunction = correctFunction)
+            correctAnswersToPartsAndFunctions.add(d)
         }
     }
 
@@ -63,9 +73,7 @@ class DiagramFragmentViewModel: ViewModel() {
     }
 
     private fun getLabelLettersOnly(): List<String>{
-        val temp = ArrayList<String>()
-        temp.addAll(questionData.diagram!!.diagramLabelNames.keys.sorted())
-        return temp
+        return questionData.diagram!!.diagramLabelNames.keys.sorted()
 
     }
 
@@ -99,7 +107,6 @@ class DiagramFragmentViewModel: ViewModel() {
     private fun evaluateUserAnswerForLabelLettersAndNames(position: Int, labelLetter: String, selectedLabelName: String){
         val answers = questionData.diagram!!.diagramLabelNames
         userAnswersForLabelNameAndFunction[position].isLabelCorrect = answers[labelLetter] == selectedLabelName
-        println(userAnswersForLabelNameAndFunction[position])
 
     }
 

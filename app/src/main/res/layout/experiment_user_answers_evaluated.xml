@@ -180,6 +180,10 @@
                 </FrameLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvUserEvaluatedProcedure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.cardview.widget.CardView>
@@ -188,7 +192,7 @@
         android:id="@+id/loResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:contentPadding="4dp"
+        app:contentPadding="8dp"
         app:cardCornerRadius="8dp"
         android:layout_margin="4dp"
         android:visibility="visible">
@@ -252,7 +256,7 @@
         android:id="@+id/loConclusion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:contentPadding="4dp"
+        app:contentPadding="8dp"
         app:cardCornerRadius="8dp"
         android:layout_margin="4dp"
         android:visibility="visible">

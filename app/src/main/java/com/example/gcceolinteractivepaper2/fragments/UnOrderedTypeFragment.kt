@@ -55,10 +55,10 @@ class UnOrderedTypeFragment : Fragment(), UnOrderedTypeRecyclerViewAdapter.OnIte
     }
 
     private fun setupListeners(){
-        binding.btnStart.setOnClickListener {
-            binding.btnStart.isEnabled = false
-            binding.cardTask.visibility = View.VISIBLE
-        }
+//        binding.btnStart.setOnClickListener {
+//            binding.btnStart.isEnabled = false
+//            binding.cardTask.visibility = View.VISIBLE
+//        }
 
         binding.btnDone.setOnClickListener {
             displayCorrectionView()

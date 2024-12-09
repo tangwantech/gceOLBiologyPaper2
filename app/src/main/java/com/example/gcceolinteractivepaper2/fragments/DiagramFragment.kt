@@ -47,16 +47,12 @@ class DiagramFragment : Fragment(), DiagramPartsAndFunctionRecyclerAdapter.OnLab
     }
 
     private fun setupViews(){
-        binding.cardQuestion.tvQuestion.text = viewModel.getQuestion()
+        binding.tvQuestion.text = viewModel.getQuestion()
 //        binding.tvDiagramTitle.text = viewModel.getDiagramTitle()
     }
 
     private fun setupListener(){
-        binding.cardQuestion.btnStart.setOnClickListener {
-            binding.cardQuestion.btnStart.isEnabled = false
-            binding.loImageAndTask.visibility = View.VISIBLE
-            binding.loBottomButtons.visibility = View.VISIBLE
-        }
+
         binding.btnDone.setOnClickListener {
             binding.loCorrection.visibility = View.VISIBLE
             binding.loBtnYourAnswers.visibility = View.VISIBLE

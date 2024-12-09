@@ -84,9 +84,9 @@ class DifferentiateFragmentViewModel: ViewModel()
 
     fun getCorrectAnswerPairs(): List<Pair<String, String>>{
         val correctAnswers = ArrayList<Pair<String, String>>()
-        for (key in questionData.differentiate!!.correctAnswers.keys){
-            val value = questionData.differentiate!!.correctAnswers[key]
-            correctAnswers.add(Pair(key, value!!))
+        for ((key, value) in questionData.differentiate!!.correctAnswers){
+//            val value = questionData.differentiate!!.correctAnswers[key]
+            correctAnswers.add(Pair(key, value))
         }
 
 //        println("getCorrectAnswerPairs: $correctAnswers")

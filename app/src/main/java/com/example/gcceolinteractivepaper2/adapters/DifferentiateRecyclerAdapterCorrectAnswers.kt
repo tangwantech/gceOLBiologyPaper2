@@ -22,9 +22,8 @@ class DifferentiateRecyclerAdapterCorrectAnswers(
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            holder.binding.tvFirst.text = correctAnswers[position].first
+            holder.binding.tvSecond.text = correctAnswers[position].second
 
-//        println("onBindViewHolder: ${userAnswers[position].first} ${userAnswers[position].second}")
-            holder.binding.tvFirst.text = "${headers[0]} ${correctAnswers[position].first}"
-            holder.binding.tvSecond.text = "${headers[1]} ${correctAnswers[position].second}"
         }
 }

@@ -231,7 +231,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun  appDataUpToDateDialog(){
         val dialog = AlertDialog.Builder(this).apply {
-            setMessage("App data is up to date.")
+            setMessage(getString(R.string.app_data_uptodate))
             setPositiveButton(getString(R.string.ok)){d, _ ->
                 d.dismiss()
             }
@@ -241,7 +241,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkingForUpdateDialog(): AlertDialog{
         val dialog = AlertDialog.Builder(this).apply {
-            setMessage("Checking for the latest update.")
+            setMessage(getString(R.string.checking_for_latest_update))
             setCancelable(false)
         }.create()
         return dialog
@@ -249,10 +249,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun appDataUpDatedDialog(){
         val dialog = AlertDialog.Builder(this).apply {
-            setMessage("App data updated successfully.")
-            setPositiveButton("Exit"){_, _ ->
+            setMessage(getString(R.string.app_data_updated))
+            setPositiveButton(getString(R.string.exit)){_, _ ->
                 finish()
             }
+            setNegativeButton(getString(R.string.cancel)){_, _ ->}
             setCancelable(false)
         }.create()
         dialog.show()

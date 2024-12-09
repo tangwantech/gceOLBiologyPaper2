@@ -52,10 +52,10 @@ class DifferentiateFragment : Fragment(), DifferentiateRecyclerAdapter.OnRowItem
     }
 
     private fun setupListeners(){
-        binding.btnStart.setOnClickListener {
-            binding.btnStart.isEnabled = false
-            binding.loTask.visibility = View.VISIBLE
-        }
+//        binding.btnStart.setOnClickListener {
+//            binding.btnStart.isEnabled = false
+//            binding.loTask.visibility = View.VISIBLE
+//        }
 
         binding.btnDone.setOnClickListener {
             displayCorrectionView()

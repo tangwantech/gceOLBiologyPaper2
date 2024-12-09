@@ -61,7 +61,7 @@ class DiagramPartsAndFunctionRecyclerAdapter(
 //            holder.binding.autoLabelFunction.setText(data[position].selectedFunction)
 //        }
 
-        if(allFunctions.isNotEmpty() && data[position].selectedFunction != null){
+        if(allFunctions.isNotEmpty()){
             holder.binding.loFunction.visibility = View.VISIBLE
             holder.binding.autoLabelFunction.setText(data[position].selectedFunction)
             holder.binding.autoLabelFunction.setAdapter(ArrayAdapter<String>(context, android.R.layout.simple_dropdown_item_1line, allFunctions))

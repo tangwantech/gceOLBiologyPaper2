@@ -33,7 +33,8 @@ class DifferentiateRecyclerAdapterUserAnswersMarked(
             holder.binding.imgWrong.visibility = View.VISIBLE
         }
 //        println("onBindViewHolder: ${userAnswers[position].first} ${userAnswers[position].second}")
-        holder.binding.tvFirst.text = "${headers[0]} ${userAnswers[position].first}"
-        holder.binding.tvSecond.text = "${headers[1]} ${userAnswers[position].second}"
+
+        holder.binding.tvFirst.text = userAnswers[position].first
+        holder.binding.tvSecond.text = userAnswers[position].second
     }
 }

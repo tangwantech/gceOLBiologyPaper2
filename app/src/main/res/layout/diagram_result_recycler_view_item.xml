@@ -77,15 +77,16 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone">
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
                     <TextView
                         android:id="@+id/tvFunction"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="@string/function"
                         android:layout_toStartOf="@id/frameFunction"
-                        android:layout_weight="1"/>
+                        />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <FrameLayout
@@ -93,14 +94,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight=".01"
-                    android:layout_alignParentEnd="true"
-                    android:visibility="gone">
+                    android:visibility="visible">
                     <ImageView
                         android:id="@+id/imgTickFunction"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_check"
-                        android:visibility="visible"/>
+                        android:visibility="gone"/>
                     <ImageView
                         android:id="@+id/imgWrongFunction"
                         android:layout_width="wrap_content"

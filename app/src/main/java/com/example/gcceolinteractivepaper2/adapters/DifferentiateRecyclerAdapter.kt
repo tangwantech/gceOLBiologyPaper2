@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gcceolinteractivepaper2.databinding.DifferentiateRecyclerItemViewBinding
+import com.example.gcceolinteractivepaper2.databinding.DifferentiateTaskRecyclerItemBinding
 
 class DifferentiateRecyclerAdapter(private val userAnswers: ArrayList<Pair<String, String>>,
                                    private val header: List<String>,
@@ -15,7 +16,7 @@ class DifferentiateRecyclerAdapter(private val userAnswers: ArrayList<Pair<Strin
                                    private val onRowItemDataChangeListener: OnRowItemDataChangeListener
 ): RecyclerView.Adapter<DifferentiateRecyclerAdapter.ViewHolder>() {
     private lateinit var context: Context
-    inner class ViewHolder(val binding: DifferentiateRecyclerItemViewBinding): RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder(val binding: DifferentiateTaskRecyclerItemBinding): RecyclerView.ViewHolder(binding.root){
         init {
             binding.autoFirst.doOnTextChanged { text, _, _, _ ->
                 if (text.toString().isNotEmpty() && binding.autoSecond.text.toString().isNotEmpty()){
@@ -33,7 +34,7 @@ class DifferentiateRecyclerAdapter(private val userAnswers: ArrayList<Pair<Strin
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
-        val binding = DifferentiateRecyclerItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = DifferentiateTaskRecyclerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -42,8 +43,8 @@ class DifferentiateRecyclerAdapter(private val userAnswers: ArrayList<Pair<Strin
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.tvHeader1.text = header[0]
-        holder.binding.tvHeader2.text = header[1]
+//        holder.binding.tvHeader1.text = header[0]
+//        holder.binding.tvHeader2.text = header[1]
 
 
         setupAutoCompleteViews(holder, position)

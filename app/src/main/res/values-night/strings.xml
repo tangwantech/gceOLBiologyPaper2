@@ -189,6 +189,19 @@
     <string name="observation_or_result">Observation or result:</string>
     <string name="conclusion">Conclusion:</string>
     <string name="experiment_conclusions_instruction">Read through the following conclusions and select the correct answer</string>
+    <string name="allele_character">allele for %1$s</string>
+    <string name="select_a_correct_allele_definition">Select a correct allele definition</string>
+    <string name="app_data_updated">App data updated successfully. Please exit and restart app for changes to take effect</string>
+    <string name="checking_for_latest_update">Checking for the latest update.</string>
+    <string name="app_data_uptodate">App data is up to date.</string>
+    <string name="phenotypic_ratio">Phenotypic ratio:</string>
+    <string name="offspring_phenotype">Offspring phenotype:</string>
+    <string name="offspring_genotype_2n">Offspring genotype(2n):</string>
+    <string name="gametes_n">Gametes(n):</string>
+    <string name="parental_genotype_2n">Parental genotype(2n):</string>
+    <string name="parental_phenotype">Parental phenotype:</string>
+    <string name="definition_of_alleles">Definition of alleles:</string>
+    <string name="offspring_phenotypic_ratio">Offspring phenotypic ratio:</string>
 
 
     <string-array name="paper_instruction">

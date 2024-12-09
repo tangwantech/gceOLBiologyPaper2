@@ -9,4 +9,6 @@
     <color name="color_tab">@color/color_primary</color>
     <color name="colorTabIndicator">#FFC107</color>
     <color name="tab_color">#E7C754</color>
+
+<!--    <color name="def_item_background">#C8B263</color>-->
 </resources>

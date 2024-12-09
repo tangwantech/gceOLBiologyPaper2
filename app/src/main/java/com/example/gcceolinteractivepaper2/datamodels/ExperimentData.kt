@@ -20,7 +20,10 @@ data class UserAnswersForExperiment(
     var labelsForSetupDiagram: ArrayList<LetterLabelNameAndRemark> = ArrayList(),
     var procedure: UserAnswerAndRemark = UserAnswerAndRemark(),
     var result: UserAnswerAndRemark = UserAnswerAndRemark(),
-    var conclusion: UserAnswerAndRemark = UserAnswerAndRemark())
+    var conclusion: UserAnswerAndRemark = UserAnswerAndRemark(),
+    val userProcedure: ArrayList<UserAnswerAndRemark> = ArrayList()
+)
+
 data class UserAnswerAndRemark(var userAnswer: String? = null, var isCorrect: Boolean = false)
 
 data class LetterAndLabelName(val letter: String, val labelName: String)

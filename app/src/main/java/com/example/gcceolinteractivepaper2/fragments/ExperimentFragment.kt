@@ -8,14 +8,21 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.ItemTouchHelper.UP
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.gcceolinteractivepaper2.R
+import com.example.gcceolinteractivepaper2.adapters.ExperimentDiagramCorrectLabelNameRecyclerAdapter
+import com.example.gcceolinteractivepaper2.adapters.ExperimentProcedureRecyclerAdapter
 import com.example.gcceolinteractivepaper2.adapters.ExperimentTaskDiagramLabelRecyclerAdapter
 import com.example.gcceolinteractivepaper2.adapters.ExperimentTaskRequirementsRecyclerAdapter
 import com.example.gcceolinteractivepaper2.adapters.ExperimentUserAnswersForDiagramLabelsRecyclerAdapter
 import com.example.gcceolinteractivepaper2.adapters.ExperimentUserRequirementsRecyclerAdapter
 import com.example.gcceolinteractivepaper2.databinding.FragmentExperimentBinding
 import com.example.gcceolinteractivepaper2.viewmodels.ExperimentFragmentViewModel
+import java.util.Collections
 
 class ExperimentFragment : Fragment(), ExperimentTaskRequirementsRecyclerAdapter.OnRequirementItemCheckChangeListener, ExperimentTaskDiagramLabelRecyclerAdapter.OnLabelNameChangeListener {
     private lateinit var binding: FragmentExperimentBinding
@@ -65,6 +72,7 @@ class ExperimentFragment : Fragment(), ExperimentTaskRequirementsRecyclerAdapter
         binding.svTask.visibility = View.GONE
         binding.svUserAnswers.visibility = View.GONE
         binding.svCorrectAnswer.visibility = View.VISIBLE
+        setupCorrectAnswersForExperiment()
     }
 
     private fun  setupTaskViews(){
@@ -161,11 +169,32 @@ class ExperimentFragment : Fragment(), ExperimentTaskRequirementsRecyclerAdapter
 
 
     }
+    private fun setupCorrectAnswersForExperiment(){
+        binding.experimentCorrectAnswers.tvCorrectAim.text = viewModel.getCorrectAim()
+
+        binding.experimentCorrectAnswers.tvCorrectRequirement.text = viewModel.getCorrectRequirements()
+
+        binding.experimentCorrectAnswers.tvSetupDiagramTitle.text = viewModel.getSetupDiagramTitle()
+
+        binding.experimentCorrectAnswers.rvCorrectDiagramLabels.layoutManager = LinearLayoutManager(requireContext()).apply {
+            orientation = LinearLayoutManager.VERTICAL
+        }
+        binding.experimentCorrectAnswers.rvCorrectDiagramLabels.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
+        binding.experimentCorrectAnswers.rvCorrectDiagramLabels.adapter = ExperimentDiagramCorrectLabelNameRecyclerAdapter(viewModel.getDiagramLettersAndCorrectLabelNames())
+        binding.experimentCorrectAnswers.rvCorrectDiagramLabels.setHasFixedSize(true)
+
+        binding.experimentCorrectAnswers.tvCorrectProcedure.text = viewModel.getCorrectProcedure()
+
+        binding.experimentCorrectAnswers.tvCorrectObservation.text = viewModel.getCorrectObservation()
+
+        binding.experimentCorrectAnswers.tvCorrectConclusion.text = viewModel.getCorrectConclusion()
+    }
 
     private fun setupViewListeners(){
         binding.btnDone.setOnClickListener {
             binding.loBtnDone.visibility = View.GONE
             binding.loBtnYourAnswers.visibility = View.VISIBLE
+            viewModel.evaluateUserProcedure()
             displayUserAnswerLo()
         }
 
@@ -250,4 +279,8 @@ class ExperimentFragment : Fragment(), ExperimentTaskRequirementsRecyclerAdapter
     override fun onLabelNameChange(position: Int, letter: String, labelName: String) {
         viewModel.updateUserAnswerForDiagramLabels(position, letter, labelName)
     }
+
+
+
+
 }

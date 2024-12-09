@@ -6,8 +6,8 @@
     app:contentPadding="4dp"
     app:cardElevation="4dp"
     app:cardCornerRadius="8dp"
+    android:layout_margin="4dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -22,6 +22,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
             <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/autoFirst"
@@ -29,14 +30,13 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/select_a_point"
                 android:editable="false"/>
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/_while"
-            android:minHeight="36dp"
+
             android:gravity="center"/>
 
         <TextView

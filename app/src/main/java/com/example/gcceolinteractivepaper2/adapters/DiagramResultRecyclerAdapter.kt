@@ -30,12 +30,13 @@ class DiagramResultRecyclerAdapter(
         holder.binding.tvLabel.text = data[position].letter
         holder.binding.tvNameOfPart.text = context.getString(R.string.name, data[position].selectedLabelName)
 
+        println(data[position])
         if( data[position].selectedFunction != null){
             holder.binding.loResultFunction.visibility = View.VISIBLE
             holder.binding.divider.visibility = View.VISIBLE
             holder.binding.tvFunction.text = context.getString(R.string.function, data[position].selectedFunction)
-        }
 
+        }
 
         if (enableRemarkView){
             holder.binding.frameName.visibility = View.VISIBLE
@@ -49,7 +50,7 @@ class DiagramResultRecyclerAdapter(
                 holder.binding.imgWrongName.visibility = View.VISIBLE
             }
 
-            if (data[position].isFunctionCorrect){
+            if (data[position].selectedFunction != null && data[position].isFunctionCorrect ){
                 holder.binding.imgTickFunction.visibility = View.VISIBLE
                 holder.binding.imgWrongFunction.visibility = View.GONE
             }else{
@@ -57,7 +58,6 @@ class DiagramResultRecyclerAdapter(
                 holder.binding.imgWrongFunction.visibility = View.VISIBLE
             }
         }
-
 
     }
 

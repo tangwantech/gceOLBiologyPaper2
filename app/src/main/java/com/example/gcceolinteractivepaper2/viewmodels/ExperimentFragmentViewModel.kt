@@ -30,12 +30,22 @@ class ExperimentFragmentViewModel: ViewModel() {
             bundleIndices.getInt(AppConstants.QUESTION_INDEX)
         )
         initUserAnswersForDiagramLabels()
+        initUserProcedure()
     }
 
     private fun initUserAnswersForDiagramLabels(){
         getSetupDiagramLabelLetters().forEach {
             userAnswersForExperiment.labelsForSetupDiagram.add(LetterLabelNameAndRemark(it))
         }
+        println(userAnswersForExperiment.labelsForSetupDiagram)
+    }
+
+    private fun initUserProcedure(){
+        val temp = ArrayList<UserAnswerAndRemark>()
+        questionData.experiment!!.procedure.stepsInProcedure.correctAnswer.shuffled().forEach {
+            temp.add(UserAnswerAndRemark(it))
+        }
+        userAnswersForExperiment.userProcedure.addAll(temp)
     }
 
     fun getQuestion(): String{
@@ -77,6 +87,10 @@ class ExperimentFragmentViewModel: ViewModel() {
         }
         temp.shuffle()
         return temp
+    }
+
+    fun getProceduresToReorder(): ArrayList<UserAnswerAndRemark>{
+        return userAnswersForExperiment.userProcedure
     }
 
     fun getResults(): List<String>{
@@ -152,6 +166,14 @@ class ExperimentFragmentViewModel: ViewModel() {
         userAnswersForExperiment.procedure.isCorrect = isCorrect
 
 //        println(userAnswersForExperiment.procedure)
+    }
+
+    fun evaluateUserProcedure(){
+        questionData.experiment!!.procedure.stepsInProcedure.correctAnswer.forEachIndexed { index, s ->
+            userAnswersForExperiment.userProcedure[index].isCorrect = userAnswersForExperiment.userProcedure[index].userAnswer == s
+        }
+
+//        println(userAnswersForExperiment.userProcedure)
     }
 
     fun updateUserResultForExperiment(value: String){

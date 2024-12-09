@@ -8,7 +8,7 @@ import com.example.gcceolinteractivepaper2.databinding.ScrambledPhraseItemViewBi
 class ScrambledPhrasesRecyclerAdapter(private val data: ArrayList<String>, private val listener: OnScrambledPhraseItemClickListener): RecyclerView.Adapter<ScrambledPhrasesRecyclerAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ScrambledPhraseItemViewBinding): RecyclerView.ViewHolder(binding.root){
         init {
-            binding.cardScrambledPhrase.setOnClickListener {
+            binding.root.setOnClickListener {
                 listener.onScrambledPhraseItemClick(adapterPosition, data[adapterPosition])
             }
         }

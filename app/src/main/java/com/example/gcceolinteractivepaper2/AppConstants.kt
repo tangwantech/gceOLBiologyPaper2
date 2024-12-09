@@ -124,6 +124,7 @@ class AppConstants {
         const val DIAGRAM = "DIAGRAM"
 
         const val EXPERIMENT = "EXPERIMENT"
+        const val GENETIC_CROSS = "GENETIC CROSS"
 
     }
 }

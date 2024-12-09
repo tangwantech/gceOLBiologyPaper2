@@ -7,18 +7,15 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.gcceolinteractivepaper2.adapters.ExamTypeTableViewPagerAdapter
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.gcceolinteractivepaper2.adapters.ExamTypeRecyclerViewAdapter
 import com.example.gcceolinteractivepaper2.databinding.ActivityExamTypeBinding
-import com.example.gcceolinteractivepaper2.fragments.ExamTypeFragment
 import com.example.gcceolinteractivepaper2.viewmodels.ExamTypeActivityViewModel
-import com.google.android.material.tabs.TabLayout
 
 class ExamTypeActivity : AppCompatActivity(),
-    ExamTypeFragment.OnPackageExpiredListener,
-    ExamTypeFragment.OnContentAccessDeniedListener,
-    ExamTypeFragment.OnExamTypeContentItemClickListener{
+    ExamTypeRecyclerViewAdapter.OnRecyclerItemClickListener{
     private lateinit var binding: ActivityExamTypeBinding
     private lateinit var viewModel: ExamTypeActivityViewModel
     private lateinit var alertDialog: AlertDialog.Builder
@@ -31,11 +28,9 @@ class ExamTypeActivity : AppCompatActivity(),
         setContentView(binding.root)
         pref = getSharedPreferences(AppConstants.EXAM_CONTENT_TABLE, MODE_PRIVATE)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        setAlertDialog()
+//        showPackageExpiredDialog()
         initViewModel()
-        setupActivityViewListeners()
-        setupViewObservers()
-        setUpExamTypeContentTab()
+        setupRecyclerView()
 
     }
 
@@ -45,16 +40,8 @@ class ExamTypeActivity : AppCompatActivity(),
         viewModel.loadPackageDataFromLocalPackageDataManager()
     }
 
-    private fun setupViewObservers(){
-        viewModel.getIsPackageActive().observe(this) {
-            if (!it) {
-                showAlertDialog()
-            }
-        }
-    }
-
-    private fun setAlertDialog(){
-        alertDialog = AlertDialog.Builder(this)
+    private fun showPackageExpiredDialog(){
+        val alertDialog = AlertDialog.Builder(this)
         alertDialog.apply {
             setMessage(resources.getString(R.string.package_expired_message))
             setPositiveButton("Ok") { _, _ ->
@@ -62,54 +49,11 @@ class ExamTypeActivity : AppCompatActivity(),
             }
             setCancelable(false)
         }.create()
-    }
-
-    private fun showAlertDialog(){
         alertDialog.show()
     }
 
     private fun exitActivity() {
         this.finish()
-    }
-
-    private fun setUpExamTypeContentTab() {
-
-        val examTypeIndex = pref.getInt(AppConstants.EXAM_TYPE_INDEX, 0)
-        val tabFragments: ArrayList<Fragment> = ArrayList()
-
-        for (fragmentIndex in 0 until viewModel.getExamTypesCount()) {
-            val fragment =
-                ExamTypeFragment.newInstance(
-                    fragmentIndex,
-                    viewModel.getPackageData().expiresOn!!,
-                    viewModel.getPackageData().packageName!!,
-
-                )
-            tabFragments.add(fragment)
-        }
-
-        val viewPagerAdapter = ExamTypeTableViewPagerAdapter(
-            this.supportFragmentManager,
-            tabFragments,
-            viewModel.getExamTitles()
-        )
-        binding.tab.homeViewPager.adapter = viewPagerAdapter
-        binding.tab.homeViewPager.currentItem = examTypeIndex
-        binding.tab.homeTab.setupWithViewPager(binding.tab.homeViewPager)
-    }
-
-    private fun setupActivityViewListeners(){
-        binding.tab.homeTab.setOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                currentTabIndex = tab?.position!!
-                saveSelectedTab(currentTabIndex)
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {}
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {}
-
-        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -132,33 +76,25 @@ class ExamTypeActivity : AppCompatActivity(),
         viewModel.loadPackageDataFromLocalPackageDataManager()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        saveSelectedTab(0)
-    }
+    private fun setupRecyclerView(){
 
-    override fun onShowPackageExpired() {
-        showAlertDialog()
-    }
+        binding.rvExamType.layoutManager = LinearLayoutManager(this).apply {
+            orientation = LinearLayoutManager.VERTICAL
+        }
+        binding.rvExamType.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
-    override fun onCheckIfPackageHasExpired(): Boolean {
-        return viewModel.getPackageStatus()
-    }
+        binding.rvExamType.adapter = ExamTypeRecyclerViewAdapter(
+            this,
+            viewModel.getExamTypeTopics(),
+            this
+        )
 
-    override fun onContentAccessDenied() {
-        val contentAccessDeniedDialog = AlertDialog.Builder(this)
-        contentAccessDeniedDialog.apply {
-            setMessage(resources.getString(R.string.content_access_denied_Message))
-            setPositiveButton("Ok") { d, _->
-                d.dismiss()
-            }
-        }.create().show()
-    }
-
-    private fun saveSelectedTab(index: Int){
-        pref.edit().apply {
-            putInt(AppConstants.EXAM_TYPE_INDEX, index)
-        }.apply()
+        binding.rvExamType.setHasFixedSize(true)
     }
 
     private fun gotoPaperActivity(examTypeContentItemIndex: Int, examTypeContentItemTitle: String){
@@ -172,17 +108,23 @@ class ExamTypeActivity : AppCompatActivity(),
 
     }
 
-    override fun onExamTypeContentItemClicked(examTypeContentItemIndex: Int, examTypeContentItemTitle: String) {
-        gotoPaperActivity(examTypeContentItemIndex, examTypeContentItemTitle)
-    }
 
     companion object{
         fun getIntent(context: Context): Intent {
             val intent = Intent(context, ExamTypeActivity::class.java)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
             return intent
         }
+    }
+
+    override fun onRecyclerItemClick(position: Int, examTypeContentItemTitle: String) {
+
+        if(!viewModel.getPackageStatus()){
+            showPackageExpiredDialog()
+        }else{
+            gotoPaperActivity(position, examTypeContentItemTitle)
+
+        }
+
     }
 
 }

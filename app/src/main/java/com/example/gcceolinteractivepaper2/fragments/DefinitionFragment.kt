@@ -49,10 +49,10 @@ class DefinitionFragment : Fragment(), ScrambledPhrasesRecyclerAdapter.OnScrambl
     }
 
     private fun setupListeners(){
-        binding.btnStart.setOnClickListener {
-            binding.btnStart.isEnabled = false
-            binding.cardTask.visibility = View.VISIBLE
-        }
+//        binding.btnStart.setOnClickListener {
+//            binding.btnStart.isEnabled = false
+//            binding.cardTask.visibility = View.VISIBLE
+//        }
 
         binding.btnUndo.setOnClickListener {
             viewModel.undoLastAddedItemInUserDefinition()

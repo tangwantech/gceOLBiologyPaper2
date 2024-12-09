@@ -47,5 +47,12 @@ class ExamTypeActivityViewModel : ViewModel() {
         return packageData
     }
 
+    fun getExamTypeTopics(examTypeIndex: Int=0): List<String>{
+        val examItemTitles = ArrayList<String>()
+        examItemTitles.addAll(LocalAppDataManager.getContentTitles(examTypeIndex))
+        return examItemTitles
+
+    }
+
 
 }
