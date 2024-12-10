@@ -34,6 +34,10 @@ class ExamTypeActivity : AppCompatActivity(),
 
     }
 
+    private fun setTitle(){
+        title = viewModel.getExamTitles()[0]
+    }
+
     private fun initViewModel(){
         viewModel = ViewModelProvider(this)[ExamTypeActivityViewModel::class.java]
         viewModel.loadAppDataFromLocalAppDataManager()
@@ -73,6 +77,7 @@ class ExamTypeActivity : AppCompatActivity(),
 
     override fun onResume() {
         super.onResume()
+        setTitle()
         viewModel.loadPackageDataFromLocalPackageDataManager()
     }
 
