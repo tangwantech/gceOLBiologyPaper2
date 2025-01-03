@@ -43,7 +43,6 @@
         app:layout_constraintTop_toBottomOf="@id/captionHeader"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="24dp"
-
         android:background="@drawable/background_round_top">
         <ScrollView
             android:layout_width="match_parent"
@@ -52,6 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/layoutSubscribe"
                     android:orientation="vertical"
@@ -67,8 +67,7 @@
                         android:layout_marginBottom="36dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        app:contentPadding="8dp"
-                        >
+                        app:contentPadding="8dp">
                         <RelativeLayout
                             android:orientation="horizontal"
                             android:layout_width="wrap_content"
@@ -151,7 +150,10 @@
                         android:id="@+id/divider1"
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
-                        android:layout_margin="32dp" />
+                        android:layout_marginStart="32dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"/>
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
@@ -167,16 +169,16 @@
                             android:text="@string/subscribe"
                             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
                     </LinearLayout>
-                    
-
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
-
                 <com.google.android.material.divider.MaterialDivider
-                    android:id="@+id/divider"
+                    android:id="@+id/divider2"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_margin="32dp" />
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"/>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/layoutNextBtn"
@@ -192,6 +194,22 @@
                         android:text="@string/next"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"/>
+                <include
+                    android:id="@+id/loBonuses"
+                    layout="@layout/bonuses"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
         </ScrollView>
     </androidx.appcompat.widget.LinearLayoutCompat>

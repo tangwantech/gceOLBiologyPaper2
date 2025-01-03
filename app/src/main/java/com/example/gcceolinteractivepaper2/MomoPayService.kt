@@ -11,16 +11,13 @@ import kotlinx.coroutines.runBlocking
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.FormBody
-import okhttp3.OkHttpClient
+
 import okhttp3.Request
 import okhttp3.Response
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
-import java.security.cert.X509Certificate
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManager
-import javax.net.ssl.X509TrustManager
+
 
 class MomoPayService(private val context: Context) {
     companion object {
@@ -29,10 +26,6 @@ class MomoPayService(private val context: Context) {
         const val STATUS = "status"
         const val SUCCESSFUL = "SUCCESSFUL"
     }
-
-
-    private lateinit var client: OkHttpClient
-
     private var subscriptionFormData: SubscriptionFormData? = null
     private var isTransactionSuccessful = MutableLiveData<Boolean?>()
     private var transactionStatus = MutableLiveData<TransactionStatus>()
@@ -55,27 +48,7 @@ class MomoPayService(private val context: Context) {
 
     private fun generateAccessToken(transactionStatusListener: TransactionStatusListener) {
 
-        // Create a custom TrustManager that trusts the server's SSL certificate
-        val trustAllCertificates = object : X509TrustManager {
-            override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
-            override fun checkClientTrusted(chain: Array<X509Certificate>, authType: String) {}
-            override fun checkServerTrusted(chain: Array<X509Certificate>, authType: String) {}
-        }
-
-// Create an SSLContext with the custom TrustManager to use in your network calls
-        val sslContext = SSLContext.getInstance("TLS")
-        sslContext.init(
-            null,
-            arrayOf<TrustManager>(trustAllCertificates),
-            java.security.SecureRandom()
-        )
-
-// Apply the SSLContext to your HTTP client (assuming you're using Retrofit or similar)
-
-        client = OkHttpClient.Builder()
-            .sslSocketFactory(sslContext.socketFactory, trustAllCertificates)
-            .hostnameVerifier { _, _ -> true }
-            .build()
+        val client = CustomOkHttpClient().getClient()
 
         val requestBody = FormBody.Builder()
             .add(AppConstants.USER_NAME, context.getString(R.string.campay_app_user_name))
@@ -139,7 +112,7 @@ class MomoPayService(private val context: Context) {
             .post(requestBody)
             .addHeader(AppConstants.AUTHORIZATION, "${AppConstants.TOKEN} ${transaction.token}")
             .build()
-
+        val client = CustomOkHttpClient().getClient()
         client.newCall(request).enqueue(object : Callback {
 
             override fun onFailure(call: Call, e: IOException) {
@@ -183,7 +156,7 @@ class MomoPayService(private val context: Context) {
             .addHeader(AppConstants.AUTHORIZATION, "${AppConstants.TOKEN} ${transaction.token}")
             .addHeader(AppConstants.CONTENT_TYPE, AppConstants.APPLICATION_JSON)
             .build()
-
+        val client = CustomOkHttpClient().getClient()
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 transactionStatusListener.onTransactionFailed()

@@ -78,6 +78,7 @@ class AppConstants {
         const val COUNTRY_CODE = "237"
         const val TRANSACTION_ID = "transactionId"
         const val REASON = "reason"
+        const val STATUS = "status"
 
         const val U_GRADE = "U Grade"
         const val MINIMUM_PASS_PERCENTAGE = 50

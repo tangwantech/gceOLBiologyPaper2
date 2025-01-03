@@ -22,6 +22,7 @@ class SubscriptionActivityViewModel: ViewModel() {
 
     private var _refNumber: String? = null
 
+
     private val _packageUpdateStatus = MutableLiveData<Boolean>()
     val packageUpdateStatus: LiveData<Boolean> = _packageUpdateStatus
 
@@ -121,10 +122,6 @@ class SubscriptionActivityViewModel: ViewModel() {
 
     }
 
-//    fun getIsPaymentSystemAvailable():LiveData<Boolean?>{
-//        return momoPay.isPaymentSystemAvailable
-//    }
-
     private fun updateActivatedPackageInRemoteRepo(activatedPackageData: PackageData){
         RemotePackageDataManager.updateUserPackageData(activatedPackageData, object: RemotePackageDataManager.OnUpdatePackageListener{
             override fun onUpDateSuccessful() {
@@ -137,7 +134,5 @@ class SubscriptionActivityViewModel: ViewModel() {
 
         })
     }
-
-
 
 }

@@ -23,6 +23,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 
 class SubscriptionActivity: AppCompatActivity(),
@@ -74,31 +75,36 @@ class SubscriptionActivity: AppCompatActivity(),
     }
 
     private fun setMomoPayFlow(){
-
+        var pendingCount = 0
+        var failCount = 0
         viewModel.transactionStatus.observe(this) {
-//            it.status?.let
+
             it?.let{status ->
                 when(status) {
                     AppConstants.PENDING -> {
-                        showRequestUserToPayDialog()
+                        if (pendingCount == 0){
+                            showRequestUserToPayDialog()
+                        }
+                        pendingCount += 1
 
                     }
                     AppConstants.SUCCESSFUL -> {
-
                         showPaymentReceivedDialog()
-
                         showActivatingPackageDialog()
                         activateUserPackage()
                     }
                     AppConstants.FAILED -> {
-                        showTransactionFailedDialog()
+                        if (failCount == 0){
+                            showTransactionFailedDialog()
+                        }
+                        failCount += 1
+
                     }
                 }
             }
 
 
         }
-
 
     }
 
@@ -149,7 +155,6 @@ class SubscriptionActivity: AppCompatActivity(),
 
         tvRequestToPayPackageType.text = viewModel.getSubjectPackageType()
         tvRequestToPayPackagePrice.text = "${viewModel.getPackagePrice()} FCFA"
-
 
         alertDialog?.dismiss()
         alertDialog = AlertDialog.Builder(this).create()
@@ -203,9 +208,12 @@ class SubscriptionActivity: AppCompatActivity(),
 
 
     private fun showPaymentReceivedDialog(){
+
         alertDialog?.dismiss()
-        alertDialog = AlertDialog.Builder(this).create()
-        alertDialog?.setMessage(resources.getString(R.string.payment_received))
+        alertDialog = AlertDialog.Builder(this).apply {
+            setMessage(resources.getString(R.string.payment_received))
+        }.create()
+//        alertDialog?.setMessage(resources.getString(R.string.payment_received))
         alertDialog?.show()
     }
 
@@ -227,7 +235,7 @@ class SubscriptionActivity: AppCompatActivity(),
             setCancelable(false)
             setPositiveButton(resources.getString(R.string.pay)  ){btn, _ ->
                 showProcessingRequestDialog()
-                viewModel.initiatePayment()
+                initiatePayment()
                 btn.dismiss()
             }
             setNegativeButton(resources.getString(R.string.cancel)){btn, _ ->
@@ -300,6 +308,11 @@ class SubscriptionActivity: AppCompatActivity(),
 
     private fun exitActivity(){
         finish()
+    }
+
+    private fun initiatePayment(){
+        viewModel.initiatePayment()
+
     }
 
     companion object{
