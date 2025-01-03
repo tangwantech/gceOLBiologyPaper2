@@ -97,7 +97,7 @@ class MomoPayService(private val context: Context) {
             override fun onResponse(call: Call, response: Response) {
                 try {
                     val responseBody = response.body?.string()
-                    println(responseBody)
+//                    println(responseBody)
                     val json = JSONObject(responseBody!!)
                     val transaction = TransactionStatus()
                     val tokenString = json[TOKEN].toString()

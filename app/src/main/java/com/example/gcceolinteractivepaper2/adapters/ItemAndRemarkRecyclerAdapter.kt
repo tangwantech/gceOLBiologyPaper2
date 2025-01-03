@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gcceolinteractivepaper2.UtilityFunctions
 import com.example.gcceolinteractivepaper2.databinding.ItemAndRemarkBinding
 import com.example.gcceolinteractivepaper2.datamodels.ItemAndRemarkData
 
@@ -22,7 +23,8 @@ class ItemAndRemarkRecyclerAdapter(private val userAnswers: List<ItemAndRemarkDa
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.tvItemTitle.text = userAnswers[position].itemTitle
+        val item = UtilityFunctions.beginStringWithUpperCase(userAnswers[position].itemTitle)
+        holder.binding.tvItemTitle.text = item
         if(userAnswers[position].remark){
             holder.binding.imgTick.visibility = View.VISIBLE
         }else{

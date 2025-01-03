@@ -36,7 +36,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/select_the_correct_aim"
-                    android:editable="false"/>
+                    android:editable="false"
+                    android:dropDownWidth="match_parent"/>
             </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.appcompat.widget.LinearLayoutCompat>

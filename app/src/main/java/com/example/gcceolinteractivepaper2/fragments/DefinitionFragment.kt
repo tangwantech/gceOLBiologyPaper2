@@ -45,14 +45,11 @@ class DefinitionFragment : Fragment(), ScrambledPhrasesRecyclerAdapter.OnScrambl
 
     private fun setupViews(){
         binding.tvQuestion.text = viewModel.getQuestion()
+        binding.tvMarksAllocated.text = requireContext().getString(R.string.marks_allocated, viewModel.getMarksAllocated())
         binding.tvTaskInstruction.text = requireContext().getString(R.string.definition_instruction)
     }
 
     private fun setupListeners(){
-//        binding.btnStart.setOnClickListener {
-//            binding.btnStart.isEnabled = false
-//            binding.cardTask.visibility = View.VISIBLE
-//        }
 
         binding.btnUndo.setOnClickListener {
             viewModel.undoLastAddedItemInUserDefinition()
@@ -75,18 +72,18 @@ class DefinitionFragment : Fragment(), ScrambledPhrasesRecyclerAdapter.OnScrambl
     }
 
     private fun setupUserAnswerView(){
-        binding.tvUserAnswer.text = viewModel.userDefinitionString.value
-//        val userDefinitionInHtml = viewModel.getCorrectedUserDefinitionInHtml()
-//        binding.tvUserAnswer.text=
-//            Html.fromHtml(userDefinitionInHtml, Html.FROM_HTML_MODE_COMPACT)
+//        binding.tvUserAnswer.text = viewModel.userDefinitionString.value
+        val userDefinitionInHtml = viewModel.getUserAnswerInHtml()
+        binding.tvUserAnswer.text=
+            Html.fromHtml(userDefinitionInHtml, Html.FROM_HTML_MODE_COMPACT)
     }
 
     private fun displayCorrectionView(){
         binding.cardTask.visibility = View.GONE
         binding.cardCorrection.visibility = View.VISIBLE
+        evaluateUserAnswer()
         setupUserAnswerView()
         setupCorrectAnswerView()
-        evaluateUserAnswer()
     }
 
     private fun evaluateUserAnswer(){

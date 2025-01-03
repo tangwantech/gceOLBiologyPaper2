@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.gcceolinteractivepaper2.AppConstants
+import com.example.gcceolinteractivepaper2.OrderedItemsMaker
+import com.example.gcceolinteractivepaper2.UtilityFunctions
 import com.example.gcceolinteractivepaper2.datamodels.QuestionData
 import com.example.gcceolinteractivepaper2.repository.LocalAppDataManager
 
@@ -12,6 +14,7 @@ class DefinitionFragmentViewModel: ViewModel() {
     private lateinit var questionData: QuestionData
     private val scrambledPhrases = ArrayList<String>()
     private val userDefinition = ArrayList<String>()
+    private var orderedItemsMaker: OrderedItemsMaker? = null
 
     private val _userDefinitionString = MutableLiveData<String>()
     val userDefinitionString: MutableLiveData<String>
@@ -55,14 +58,14 @@ class DefinitionFragmentViewModel: ViewModel() {
     }
 
     private fun updateUserDefinitionString(){
-        _userDefinitionString.value = userDefinition.joinToString(" ")
+        _userDefinitionString.value = UtilityFunctions.transformListToStringThatStartsWithUpperCase(userDefinition)
+//        userDefinition.joinToString(" ")
     }
 
     fun undoLastAddedItemInUserDefinition(){
         scrambledPhrases.add(userDefinition.last())
         userDefinition.removeLast()
         updateUserDefinitionString()
-
 
     }
 
@@ -72,27 +75,44 @@ class DefinitionFragmentViewModel: ViewModel() {
     }
 
     fun getCorrectAnswer(): String {
-        return questionData.definition!!.correctAnswer.joinToString(" ")
+        return UtilityFunctions.transformListToStringThatStartsWithUpperCase(questionData.definition!!.correctAnswer)
+//        return questionData.definition!!.correctAnswer.joinToString(" ")
     }
 
     fun evaluateUserAnswer(): Boolean{
 //        convertUserDefinitionToHtml()
+        orderedItemsMaker = OrderedItemsMaker(userDefinition, questionData.definition!!.correctAnswer, questionData.marksAllocated)
+        println("Points: ${orderedItemsMaker!!.getPointsScored()}")
         return userDefinition == questionData.definition!!.correctAnswer
     }
 
 
     fun getCorrectedUserDefinitionInHtml(): String{
+
         var stringTemp = ""
         for (phraseIndex in userDefinition.indices){
 
             stringTemp += if(userDefinition[phraseIndex] == questionData.definition!!.correctAnswer[phraseIndex]){
-                "<p>${userDefinition[phraseIndex]}</p>"
+                "<span> ${userDefinition[phraseIndex]}</span>"
             }else{
-                "<p><del>${userDefinition[phraseIndex]}</del></p>"
+                "<span style=\"color:red\">${userDefinition[phraseIndex]}</span>"
             }
         }
 //        println(stringTemp)
+        val final = "<p>$stringTemp</p>"
         return stringTemp
+    }
+
+    fun getPointsScored(): Int{
+        return orderedItemsMaker!!.getPointsScored()
+    }
+
+    fun getUserAnswerInHtml(): String{
+        return orderedItemsMaker!!.getUserAnswerInHtmlFormat()
+    }
+
+    fun getMarksAllocated(): String {
+        return questionData.marksAllocated.toString()
     }
 
 }

@@ -11,6 +11,7 @@ import com.example.gcceolinteractivepaper2.R
 import com.example.gcceolinteractivepaper2.adapters.DiagramPartsAndFunctionRecyclerAdapter
 import com.example.gcceolinteractivepaper2.adapters.DiagramResultRecyclerAdapter
 import com.example.gcceolinteractivepaper2.databinding.FragmentDiagramBinding
+import com.example.gcceolinteractivepaper2.repository.ImageResourceRepo
 import com.example.gcceolinteractivepaper2.viewmodels.DiagramFragmentViewModel
 
 class DiagramFragment : Fragment(), DiagramPartsAndFunctionRecyclerAdapter.OnLabelNameAndFunctionSetListener {
@@ -37,6 +38,7 @@ class DiagramFragment : Fragment(), DiagramPartsAndFunctionRecyclerAdapter.OnLab
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDiagramBinding.bind(view)
         setupViews()
+        setupDiagram()
         setupListener()
         setupRecyclerViewForTaskPartsAndFunctions()
 
@@ -49,6 +51,14 @@ class DiagramFragment : Fragment(), DiagramPartsAndFunctionRecyclerAdapter.OnLab
     private fun setupViews(){
         binding.tvQuestion.text = viewModel.getQuestion()
 //        binding.tvDiagramTitle.text = viewModel.getDiagramTitle()
+    }
+
+    private fun setupDiagram(){
+        val imgId = ImageResourceRepo.getImageFromResourceId(viewModel.getImageFromResource())
+        imgId?.let {
+            binding.img.setImageResource(it)
+        }
+
     }
 
     private fun setupListener(){

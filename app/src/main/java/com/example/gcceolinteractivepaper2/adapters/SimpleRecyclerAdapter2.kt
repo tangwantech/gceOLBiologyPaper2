@@ -3,7 +3,7 @@ package com.example.gcceolinteractivepaper2.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gcceolinteractivepaper2.databinding.ScrambledPhraseItemViewBinding
+import com.example.gcceolinteractivepaper2.UtilityFunctions
 import com.example.gcceolinteractivepaper2.databinding.SimpleItemViewBinding
 
 class SimpleRecyclerAdapter2(private val items: List<String>): RecyclerView.Adapter<SimpleRecyclerAdapter2.ViewHolder>() {
@@ -20,6 +20,7 @@ class SimpleRecyclerAdapter2(private val items: List<String>): RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.tvItemTitle.text = items[position]
+        val item = UtilityFunctions.beginStringWithUpperCase(items[position])
+        holder.binding.tvItemTitle.text = item
     }
 }

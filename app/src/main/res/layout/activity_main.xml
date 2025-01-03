@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/your_success_companion"
+            android:text="@string/your_revision_companion"
             android:textColor="@color/color_on_primary"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -64,14 +64,16 @@
                         app:cardCornerRadius="24dp"
                         app:cardElevation="8dp"
                         android:layout_marginTop="36dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_marginBottom="36dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        app:contentPadding="24dp">
+                        app:contentPadding="8dp"
+                        >
                         <RelativeLayout
                             android:orientation="horizontal"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            >
+                            android:padding="8dp">
 
                             <LinearLayout
                                 android:id="@+id/contentLo"
@@ -165,6 +167,8 @@
                             android:text="@string/subscribe"
                             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
                     </LinearLayout>
+                    
+
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 

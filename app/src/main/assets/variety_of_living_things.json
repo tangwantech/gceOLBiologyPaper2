@@ -7,6 +7,7 @@
         {
           "question": "Draw a large labelled diagram of a named bony fish and state the main functions of the parts labelled",
           "type": "DIAGRAM",
+          "marksAllocated": 4,
           "definition":null,
           "differentiate": null,
           "experiment": null,
@@ -14,7 +15,7 @@
           "orderedType": null,
           "genetics": null,
           "diagram": {
-            "imageWithLabelLetters": "tilapiaWithLabelLetters.jpg",
+            "imageWithLabelLetters": "bony_fish_june_2022.jpg",
             "diagramLabelNames":{
               "A": "Eye",
               "B": "Mouth",
@@ -35,6 +36,7 @@
         {
           "question": "Draw a large labelled diagram of an Agama lizard",
           "type": "DIAGRAM",
+          "marksAllocated": 4,
           "definition":null,
           "differentiate": null,
           "experiment": null,
@@ -42,7 +44,7 @@
           "orderedType": null,
           "genetics": null,
           "diagram": {
-            "imageWithLabelLetters": "tilapiaWithLabelLetters.jpg",
+            "imageWithLabelLetters": "bony_fish_june_2022.jpg",
             "diagramLabelNames":{
               "A": "Eye",
               "B": "Mouth",

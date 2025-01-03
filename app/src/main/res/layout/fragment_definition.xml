@@ -26,17 +26,26 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:minHeight="56dp"
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp">
                 <TextView
                     android:id="@+id/tvQuestion"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:text="Replace with question"
                     android:textColor="@color/color_on_primary"/>
+                <TextView
+                    android:id="@+id/tvMarksAllocated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/marks_allocated"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_on_primary"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
+
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.cardview.widget.CardView>
@@ -99,7 +108,8 @@
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:background="@color/scramble_background">
                             <TextView
                                 android:id="@+id/tvUserDefinition"
                                 android:layout_width="match_parent"
@@ -235,11 +245,12 @@
                         android:layout_margin="4dp"
                         app:cardCornerRadius="8dp"
                         app:cardElevation="8dp"
-                        app:contentPadding="4dp">
+                        app:contentPadding="4dp"
+                        app:cardBackgroundColor="@color/scramble_background">
                         <TextView
                             android:id="@+id/tvUserAnswer"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent" />
                     </androidx.cardview.widget.CardView>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 

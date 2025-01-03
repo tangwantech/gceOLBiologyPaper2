@@ -67,7 +67,7 @@ class DiagramFragmentViewModel: ViewModel() {
         return userAnswersForLabelNameAndFunction
     }
 
-    fun getImageWithLabelLettersFileNAme(): String{
+    fun getImageFromResource(): String{
         return questionData.diagram!!.imageWithLabelLetters
 
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="your_success_companion">Your revision companion</string>
+    <string name="your_revision_companion">Your revision companion</string>
     <string name="recycler_item_text">Item test text</string>
     <string name="home">Home</string>
     <string name="current_package">Current package</string>
@@ -202,6 +202,9 @@
     <string name="parental_phenotype">Parental phenotype:</string>
     <string name="definition_of_alleles">Definition of alleles:</string>
     <string name="offspring_phenotypic_ratio">Offspring phenotypic ratio:</string>
+    <string name="next_point">Next point</string>
+    <string name="item_title">%1$s. %2$s</string>
+    <string name="marks_allocated"> (%1$s marks) </string>
 
 
     <string-array name="paper_instruction">

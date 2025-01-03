@@ -24,6 +24,7 @@ class ScrambledPhrasesRecyclerAdapter(private val data: ArrayList<String>, priva
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        println("sxrammm ${data[position]}")
         holder.binding.tvScrambledPhrase.text = data[position]
     }
 

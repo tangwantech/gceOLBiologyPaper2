@@ -16,12 +16,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/gce_ol_biology"
+            android:text="@string/app_name"
             android:textSize="24sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/your_success_companion"
+            android:text="@string/your_revision_companion"
             android:layout_marginTop="8dp"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 

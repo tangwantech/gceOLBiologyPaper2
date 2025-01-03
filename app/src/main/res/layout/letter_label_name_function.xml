@@ -32,7 +32,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/select_name_of_part"
-                    android:editable="false"/>
+                    android:editable="false"
+                    android:dropDownWidth="match_parent"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/loFunction"
@@ -45,7 +46,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/select_function"
-                    android:editable="false"/>
+                    android:editable="false"
+                    android:dropDownWidth="match_parent"/>
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>

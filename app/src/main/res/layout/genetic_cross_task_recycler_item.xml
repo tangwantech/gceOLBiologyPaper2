@@ -264,6 +264,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    app:layout_constrainedWidth="true"
                     android:id="@+id/labelOffspringGenotypes"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -275,7 +276,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/loOffSpringGenotypes"
                     app:layout_constraintHorizontal_weight=".4"/>
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/loOffSpringGenotypes"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -284,20 +285,17 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/labelOffspringGenotypes"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_weight=".6">
-                    <com.google.android.material.textfield.TextInputLayout
+                    app:layout_constraintHorizontal_weight=".6"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+                    <AutoCompleteTextView
+                        android:id="@+id/autoOffspringGenotypes"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
-                        <AutoCompleteTextView
-                            android:id="@+id/autoOffspringGenotypes"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:editable="false"
-                            android:textSize="12sp"/>
-                    </com.google.android.material.textfield.TextInputLayout>
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                        android:gravity="center"
+                        android:editable="false"
+                        android:textSize="12sp"
+                        android:dropDownWidth="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -316,7 +314,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/loOffspringPhenotypes"
                     app:layout_constraintHorizontal_weight=".4"/>
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/loOffspringPhenotypes"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -325,20 +323,17 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/labelOffspringPhenotypes"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_weight=".6">
-                    <com.google.android.material.textfield.TextInputLayout
+                    app:layout_constraintHorizontal_weight=".6"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+                    <AutoCompleteTextView
+                        android:id="@+id/autoOffspringPhenotypes"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
-                        <AutoCompleteTextView
-                            android:id="@+id/autoOffspringPhenotypes"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:editable="false"
-                            android:textSize="12sp"/>
-                    </com.google.android.material.textfield.TextInputLayout>
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                        android:gravity="center"
+                        android:editable="false"
+                        android:textSize="12sp"
+                        android:dropDownWidth="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -358,7 +353,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/loPhenotypicRatio"
                     app:layout_constraintHorizontal_weight=".4"/>
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/loPhenotypicRatio"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -367,20 +362,17 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/labelPhenotypicRatio"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_weight=".6">
-                    <com.google.android.material.textfield.TextInputLayout
+                    app:layout_constraintHorizontal_weight=".6"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+                    <AutoCompleteTextView
+                        android:id="@+id/autoOffspringPhenotypicRatio"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
-                        <AutoCompleteTextView
-                            android:id="@+id/autoOffspringPhenotypicRatio"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:editable="false"
-                            android:textSize="12sp"/>
-                    </com.google.android.material.textfield.TextInputLayout>
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                        android:gravity="center"
+                        android:editable="false"
+                        android:textSize="12sp"
+                        android:dropDownWidth="match_parent"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.LinearLayoutCompat>
