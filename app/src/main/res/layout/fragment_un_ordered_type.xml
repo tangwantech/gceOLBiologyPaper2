@@ -215,11 +215,12 @@
                             android:layout_margin="4dp"
                             app:cardCornerRadius="8dp"
                             app:cardElevation="8dp"
-                            app:contentPadding="4dp">
+                            app:contentPadding="4dp"
+                            app:cardBackgroundColor="@color/scramble_background">
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/rvCorrectAnswer"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"/>
+                                android:layout_height="match_parent" />
                         </androidx.cardview.widget.CardView>
                     </androidx.appcompat.widget.LinearLayoutCompat>
                 </androidx.constraintlayout.widget.ConstraintLayout>

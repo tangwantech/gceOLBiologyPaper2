@@ -288,12 +288,11 @@
                         app:cardCornerRadius="8dp"
                         app:cardElevation="8dp"
                         app:contentPadding="4dp"
-                        app:cardBackgroundColor="@color/color_primary">
+                        app:cardBackgroundColor="@color/scramble_background">
                         <TextView
                             android:id="@+id/tvCorrectAnswer"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:textColor="@color/color_on_primary"/>
+                            android:layout_height="match_parent" />
                     </androidx.cardview.widget.CardView>
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.constraintlayout.widget.ConstraintLayout>

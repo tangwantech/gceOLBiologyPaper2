@@ -14,13 +14,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/cardTimeBonus"
         app:cardCornerRadius="4dp"
-        android:layout_margin="4dp">
-        <TextView
-            android:id="@+id/tvSpinPoints"
+        android:layout_margin="4dp"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground">
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Spin points"
-            android:gravity="center" />
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/spin_points"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@color/color_primary_variant"/>
+            <TextView
+                android:id="@+id/tvSpinPoints"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:gravity="center"
+                android:textSize="13sp"
+                android:textAllCaps="true"
+                android:textColor="@color/color_primary_variant"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
 
     </androidx.cardview.widget.CardView>
 
@@ -33,12 +52,31 @@
         app:layout_constraintStart_toEndOf="@id/cardSpinPoints"
         app:layout_constraintEnd_toEndOf="parent"
         app:cardCornerRadius="4dp"
-        android:layout_margin="4dp">
-        <TextView
-            android:id="@+id/tvBonusTime"
+        android:layout_margin="4dp"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground">
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Bonus time: 1000 mins"
-            android:gravity="center" />
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bonus_time"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@color/color_primary_variant"/>
+            <TextView
+                android:id="@+id/tvBonusTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1000 mins"
+                android:gravity="center"
+                android:textSize="13sp"
+                android:textAllCaps="true"
+                android:textColor="@color/color_primary_variant"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

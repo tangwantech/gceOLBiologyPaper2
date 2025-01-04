@@ -205,6 +205,8 @@
     <string name="next_point">Next point</string>
     <string name="item_title">%1$s. %2$s</string>
     <string name="marks_allocated"> (%1$s marks) </string>
+    <string name="spin_points">Spin points</string>
+    <string name="bonus_time">Bonus time</string>
 
 
     <string-array name="paper_instruction">
