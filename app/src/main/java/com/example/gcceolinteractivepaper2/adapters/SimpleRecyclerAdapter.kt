@@ -25,7 +25,7 @@ class SimpleRecyclerAdapter(private val items: List<String>, private val onSimpl
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.tvSimpleRecyclerTitle.text = items[position]
+        holder.binding.tvSimpleRecyclerTitle.text = "${position + 1}. ${ items[position] }"
     }
 
     interface OnSimpleRecyclerItemClickListener{

@@ -45,7 +45,7 @@ class QuestionsNavActivity : AppCompatActivity(), SimpleRecyclerAdapter.OnSimple
     }
 
     private fun setTitle(){
-        title = intent.getStringExtra(AppConstants.EXERCISE_TITLE)
+        title = intent.getStringExtra(AppConstants.EXAM_TYPE_CONTENT_ITEM_TITLE)
     }
 
     private fun setupRecyclerView(){
@@ -59,9 +59,8 @@ class QuestionsNavActivity : AppCompatActivity(), SimpleRecyclerAdapter.OnSimple
 
         val examTypeIndex = intent.getIntExtra(AppConstants.EXAM_TYPE_INDEX, 0)
         val examTypeContentItemIndex = intent.getIntExtra(AppConstants.EXAM_TYPE_CONTENT_ITEM_INDEX, 0)
-        val exerciseIndex = intent.getIntExtra(AppConstants.EXERCISE_INDEX, 0)
 
-        val adapter = SimpleRecyclerAdapter(viewModel.getQuestions(examTypeIndex, examTypeContentItemIndex, exerciseIndex), this)
+        val adapter = SimpleRecyclerAdapter(viewModel.getQuestions(examTypeIndex, examTypeContentItemIndex), this)
         binding.recyclerView.adapter = adapter
 
     }
@@ -75,9 +74,6 @@ class QuestionsNavActivity : AppCompatActivity(), SimpleRecyclerAdapter.OnSimple
         val bundle = Bundle().apply {
             putInt(AppConstants.EXAM_TYPE_INDEX, intent.getIntExtra(AppConstants.EXAM_TYPE_INDEX, 0))
             putInt(AppConstants.EXAM_TYPE_CONTENT_ITEM_INDEX, intent.getIntExtra(AppConstants.EXAM_TYPE_CONTENT_ITEM_INDEX, 0))
-            putInt(AppConstants.EXERCISE_INDEX, intent.getIntExtra(AppConstants.EXERCISE_INDEX, 0))
-            putString(AppConstants.EXERCISE_TITLE, intent.getStringExtra(AppConstants.EXERCISE_TITLE))
-
             putInt(AppConstants.QUESTION_INDEX, position)
             println(position)
 
@@ -90,8 +86,7 @@ class QuestionsNavActivity : AppCompatActivity(), SimpleRecyclerAdapter.OnSimple
             val intent = Intent(context, QuestionsNavActivity::class.java)
             intent.putExtra(AppConstants.EXAM_TYPE_INDEX, bundle.getInt(AppConstants.EXAM_TYPE_INDEX))
             intent.putExtra(AppConstants.EXAM_TYPE_CONTENT_ITEM_INDEX, bundle.getInt(AppConstants.EXAM_TYPE_CONTENT_ITEM_INDEX))
-            intent.putExtra(AppConstants.EXERCISE_INDEX, bundle.getInt(AppConstants.EXERCISE_INDEX))
-            intent.putExtra(AppConstants.EXERCISE_TITLE, bundle.getString(AppConstants.EXERCISE_TITLE))
+            intent.putExtra(AppConstants.EXAM_TYPE_CONTENT_ITEM_TITLE, bundle.getString(AppConstants.EXAM_TYPE_CONTENT_ITEM_TITLE))
             return intent
         }
     }

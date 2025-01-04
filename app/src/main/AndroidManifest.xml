@@ -24,10 +24,7 @@
             android:name=".QuestionsNavActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ExerciseNavActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".ExamTypeActivity"
             android:exported="false"

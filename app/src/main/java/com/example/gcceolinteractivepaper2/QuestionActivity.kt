@@ -23,9 +23,10 @@ class QuestionActivity : AppCompatActivity() {
         binding = ActivityQuestionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        setTitle()
+
         initBundleIndices()
         setupViewModel()
+        setTitle()
         gotoFragment()
     }
 
@@ -35,7 +36,9 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     private fun setTitle(){
-        title = intent.getBundleExtra(AppConstants.BUNDLE_INDICES)?.getString(AppConstants.EXERCISE_TITLE)
+        val examTypeIndex = bundleIndices.getInt(AppConstants.EXAM_TYPE_INDEX, 0)
+        val contentItemIndex = bundleIndices.getInt(AppConstants.EXAM_TYPE_CONTENT_ITEM_INDEX, 0)
+        title = viewModel.getExamTypeContentTitleAt(examTypeIndex, contentItemIndex)
     }
 
     private fun initBundleIndices(){
@@ -49,10 +52,9 @@ class QuestionActivity : AppCompatActivity() {
     private fun gotoFragment(){
         val examTypeIndex = bundleIndices.getInt(AppConstants.EXAM_TYPE_INDEX, 0)
         val contentItemIndex = bundleIndices.getInt(AppConstants.EXAM_TYPE_CONTENT_ITEM_INDEX, 0)
-        val exerciseIndex = bundleIndices.getInt(AppConstants.EXERCISE_INDEX, 0)
         val questionIndex = bundleIndices.getInt(AppConstants.QUESTION_INDEX, 0)
 
-        val questionType = viewModel.getQuestionType(examTypeIndex, contentItemIndex, exerciseIndex, questionIndex)
+        val questionType = viewModel.getQuestionType(examTypeIndex, contentItemIndex, questionIndex)
 
         when(questionType){
             AppConstants.DEFINITION -> {

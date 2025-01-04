@@ -5,7 +5,7 @@ import com.example.gcceolinteractivepaper2.repository.LocalAppDataManager
 
 class QuestionsNavActivityViewModel: ViewModel() {
 
-    fun getQuestions(examTypeIndex: Int, examTypeContentItemIndex: Int, exerciseIndex: Int): List<String>{
-        return LocalAppDataManager.getExerciseQuestions(examTypeIndex, examTypeContentItemIndex, exerciseIndex)
+    fun getQuestions(examTypeIndex: Int, examTypeContentItemIndex: Int): List<String>{
+        return LocalAppDataManager.getContentQuestions(examTypeIndex, examTypeContentItemIndex)
     }
 }

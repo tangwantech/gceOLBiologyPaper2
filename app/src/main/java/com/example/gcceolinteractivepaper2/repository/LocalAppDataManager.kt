@@ -30,21 +30,21 @@ class LocalAppDataManager{
 
         }
 
-        fun getExerciseTitles(examTypeIndex: Int, contentIndex: Int): List<String>{
-            return appData!!.examTypes[examTypeIndex].contents[contentIndex].exercises.map { it.title }
+        fun getExamTypeContentTitleAt(examTypeIndex: Int, contentTitleIndex: Int): String{
+            return getContentTitles(examTypeIndex)[contentTitleIndex]
         }
 
-        fun getExerciseQuestions(examTypeIndex: Int, contentIndex: Int, exerciseIndex: Int): List<String>{
-            return appData!!.examTypes[examTypeIndex].contents[contentIndex].exercises[exerciseIndex].questions.map { it.question }
+        fun getContentQuestions(examTypeIndex: Int, contentIndex: Int): List<String>{
+            return appData!!.examTypes[examTypeIndex].contents[contentIndex].questions.map { it.question }
         }
 
-        fun getExerciseQuestionData(examTypeIndex: Int, contentIndex: Int, exerciseIndex: Int, questionIndex: Int): QuestionData{
-            return appData!!.examTypes[examTypeIndex].contents[contentIndex].exercises[exerciseIndex].questions[questionIndex]
+        fun getQuestionDataAt(examTypeIndex: Int, contentIndex: Int, questionIndex: Int): QuestionData{
+            return appData!!.examTypes[examTypeIndex].contents[contentIndex].questions[questionIndex]
 
         }
 
-        fun getQuestionType(examTypeIndex: Int, contentIndex: Int, exerciseIndex: Int, questionIndex: Int): String{
-            return appData!!.examTypes[examTypeIndex].contents[contentIndex].exercises[exerciseIndex].questions[questionIndex].type
+        fun getQuestionType(examTypeIndex: Int, contentIndex: Int, questionIndex: Int): String{
+            return appData!!.examTypes[examTypeIndex].contents[contentIndex].questions[questionIndex].type
 
         }
 

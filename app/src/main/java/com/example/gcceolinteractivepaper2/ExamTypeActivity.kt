@@ -109,7 +109,7 @@ class ExamTypeActivity : AppCompatActivity(),
             putInt(AppConstants.EXAM_TYPE_CONTENT_ITEM_INDEX, examTypeContentItemIndex)
             putString(AppConstants.EXAM_TYPE_CONTENT_ITEM_TITLE, examTypeContentItemTitle)
         }
-        startActivity(ExerciseNavActivity.getIntent(this, bundle))
+        startActivity(QuestionsNavActivity.getIntent(this, bundle))
 
     }
 

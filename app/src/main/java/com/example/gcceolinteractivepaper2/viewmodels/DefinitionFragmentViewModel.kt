@@ -27,10 +27,9 @@ class DefinitionFragmentViewModel: ViewModel() {
     }
 
     private fun setQuestionData() {
-        questionData = LocalAppDataManager.getExerciseQuestionData(
+        questionData = LocalAppDataManager.getQuestionDataAt(
             bundleIndices.getInt(AppConstants.EXAM_TYPE_INDEX),
             bundleIndices.getInt(AppConstants.EXAM_TYPE_CONTENT_ITEM_INDEX),
-            bundleIndices.getInt(AppConstants.EXERCISE_INDEX),
             bundleIndices.getInt(AppConstants.QUESTION_INDEX)
         )
         setupScrambledPhrases()
