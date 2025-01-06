@@ -38,6 +38,31 @@
               "diagram": null
             },
             {
+              "question": "Describe the mechanism by which air is drawn into the lungs",
+              "type": "ORDERED",
+              "marksAllocated": 6,
+              "definition": null,
+              "differentiate": null,
+              "experiment": null,
+              "unOrderedType": {
+                "correctAnswer": ["the mechanism by which air is drawn into the lungs","is known as inspiration.", "it involves the following steps:",
+                  "the external intercostal muscles contract", "pulling the ribs outward and upward.",
+                  "the diaphragm muscles also contract","pulling the diaphragm flat.",
+                  "the volume of the thoracic cavity increases","leading to a decrease in the pressure around the lungs below atmospheric pressure.",
+                  "air then rushes into the lungs from the outside."
+                ],
+                "distractors": ["the mechanism by which air is drawn into the lungs","is known as inspiration.", "it involves the following steps:",
+                  "the external intercostal muscles contract", "pulling the ribs outward and upward.",
+                  "the diaphragm muscles also contract","pulling the diaphragm flat.",
+                  "the volume of the thoracic cavity increases","leading to a decrease in the pressure around the lungs below atmospheric pressure.",
+                  "air then rushes into the lungs from the outside."
+                ]
+              },
+              "orderedType": null,
+              "genetics": null,
+              "diagram": null
+            },
+            {
               "question": "Differentiate between photosynthesis and respiration ",
               "type": "DIFFERENTIATE",
               "marksAllocated": 6,

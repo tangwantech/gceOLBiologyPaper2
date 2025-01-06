@@ -11,6 +11,7 @@ import com.example.gcceolinteractivepaper2.fragments.DiagramFragment
 import com.example.gcceolinteractivepaper2.fragments.DifferentiateFragment
 import com.example.gcceolinteractivepaper2.fragments.ExperimentFragment
 import com.example.gcceolinteractivepaper2.fragments.GeneticsFragment
+import com.example.gcceolinteractivepaper2.fragments.OrderedTypeFragment
 import com.example.gcceolinteractivepaper2.fragments.UnOrderedTypeFragment
 import com.example.gcceolinteractivepaper2.viewmodels.QuestionActivityViewModel
 
@@ -65,6 +66,10 @@ class QuestionActivity : AppCompatActivity() {
                 gotoUnOrderedTypeFragment()
             }
 
+            AppConstants.ORDERED_TYPE -> {
+//                gotoOrderedTypeFragment()
+            }
+
             AppConstants.DIFFERENTIATE -> {
                 gotoDifferentiateFragment()
             }
@@ -97,6 +102,14 @@ class QuestionActivity : AppCompatActivity() {
         val unOrderedTypeFragment = UnOrderedTypeFragment.newInstance(bundle)
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, unOrderedTypeFragment)
+            .commit()
+    }
+
+    private fun gotoOrderedTypeFragment(){
+        val bundle = intent.getBundleExtra(AppConstants.BUNDLE_INDICES)!!
+        val orderedTypeFragment = OrderedTypeFragment.newInstance(bundle)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, orderedTypeFragment)
             .commit()
     }
 

@@ -30,9 +30,6 @@ class UnOrderedTypeRecyclerViewAdapter(private val data: List<String>, private v
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if(data[position].isNotEmpty()){
-//            val firstLetter = data[position].first().uppercase()
-//            val subString = data[position].substring(1, data[position].length)
-//            val item = firstLetter + subString
             val stringStartingWithUppercasedLetter = UtilityFunctions.beginStringWithUpperCase(data[position])
             holder.binding.tvItemTitle.text = context.getString(R.string.item_title,
                 "${ position + 1 }", stringStartingWithUppercasedLetter)

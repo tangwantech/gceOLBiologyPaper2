@@ -2,7 +2,6 @@ package com.example.gcceolinteractivepaper2
 
 class AppConstants {
     companion object{
-
         const val TERMS_ACCEPTED = "termsAccepted"
         const val SECONDS = "SECONDS"
         const val MINUTES = "MINUTES"
@@ -123,6 +122,7 @@ class AppConstants {
         const val UN_ORDERED_TYPE = "UNORDERED"
         const val DIFFERENTIATE = "DIFFERENTIATE"
         const val DIAGRAM = "DIAGRAM"
+        const val ORDERED_TYPE = "ORDERED"
 
         const val EXPERIMENT = "EXPERIMENT"
         const val GENETIC_CROSS = "GENETIC CROSS"

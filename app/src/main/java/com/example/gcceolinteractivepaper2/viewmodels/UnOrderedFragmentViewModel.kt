@@ -9,7 +9,7 @@ import com.example.gcceolinteractivepaper2.datamodels.ItemAndRemarkData
 import com.example.gcceolinteractivepaper2.datamodels.QuestionData
 import com.example.gcceolinteractivepaper2.repository.LocalAppDataManager
 
-class UnOrderedFragmentViewModel: ViewModel() {
+open class UnOrderedFragmentViewModel: ViewModel() {
     private lateinit var bundleIndices: Bundle
     private lateinit var questionData: QuestionData
     private val scrambledPhrases = ArrayList<String>()
@@ -20,15 +20,17 @@ class UnOrderedFragmentViewModel: ViewModel() {
     private val _userAnswersAvailable = MutableLiveData(false)
     val userAnswersAvailable: LiveData<Boolean> = _userAnswersAvailable
 
-    private val _userAnswersForPointAvailable = MutableLiveData(false)
-    val userAnswersForPointAvailable: LiveData<Boolean> = _userAnswersForPointAvailable
+//    private val _userAnswersForPointAvailable = MutableLiveData(false)
+//    val userAnswersForPointAvailable: LiveData<Boolean> = _userAnswersForPointAvailable
 
     private var currentLineIndex = 0
 
 
     private val userResult = ArrayList<ItemAndRemarkData>()
 
-    fun setBundleIndices(bundleIndices: Bundle) {
+
+    open fun setBundleIndices(bundleIndices: Bundle) {
+
         this.bundleIndices = bundleIndices
         setQuestionData()
 
@@ -43,14 +45,17 @@ class UnOrderedFragmentViewModel: ViewModel() {
 
     }
 
+
     fun getQuestion(): String{
         return questionData.question
     }
+
 
     fun getScrambledPhrases(): ArrayList<String>{
         scrambledPhrases.addAll(questionData.unOrderedType!!.distractors)
         scrambledPhrases.shuffle()
         return scrambledPhrases
+
 
     }
 
@@ -62,10 +67,24 @@ class UnOrderedFragmentViewModel: ViewModel() {
                 userResult.add(ItemAndRemarkData(userAnswer, false))
             }
         }
+
     }
 
-    fun getUserResult(): List<ItemAndRemarkData>{
+    fun evaluateUserAnswerInOrder() {
+
+        userAnswers.forEachIndexed { index, userAnswer ->
+            if (userAnswer == questionData.unOrderedType!!.correctAnswer[index]){
+                userResult.add(ItemAndRemarkData(userAnswer, true))
+            }else{
+                userResult.add(ItemAndRemarkData(userAnswer, false))
+            }
+        }
+
+    }
+
+    fun getUserResult(): ArrayList<ItemAndRemarkData>{
         return userResult
+
     }
 
     fun getCorrectAnswers(): List<String>{
@@ -178,6 +197,12 @@ class UnOrderedFragmentViewModel: ViewModel() {
         }
 
     }
+    fun removeFromScrambledPhrases(phrase: String){
+        if (scrambledPhrases.isNotEmpty()){
+            scrambledPhrases.remove(phrase)
+        }
+
+    }
 
     private fun addListToScrambledPhrases(phrases: List<String>){
         if (phrases.isNotEmpty()){
@@ -185,10 +210,5 @@ class UnOrderedFragmentViewModel: ViewModel() {
         }
     }
 
-    fun removeFromScrambledPhrases(phrase: String){
-        if(phrase in scrambledPhrases){
-            scrambledPhrases.remove(phrase)
-        }
 
-    }
 }

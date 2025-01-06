@@ -28,7 +28,8 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textAllCaps="true"
-                android:textColor="@color/color_primary_variant"/>
+                android:textColor="@color/color_primary_variant"
+                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tvSpinPoints"
                 android:layout_width="match_parent"
@@ -37,7 +38,8 @@
                 android:gravity="center"
                 android:textSize="13sp"
                 android:textAllCaps="true"
-                android:textColor="@color/color_primary_variant"/>
+                android:textColor="@color/color_primary_variant"
+                android:layout_weight="1"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 
@@ -66,7 +68,8 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textAllCaps="true"
-                android:textColor="@color/color_primary_variant"/>
+                android:textColor="@color/color_primary_variant"
+                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tvBonusTime"
                 android:layout_width="match_parent"
@@ -75,7 +78,8 @@
                 android:gravity="center"
                 android:textSize="13sp"
                 android:textAllCaps="true"
-                android:textColor="@color/color_primary_variant"/>
+                android:textColor="@color/color_primary_variant"
+                android:layout_weight="1"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>

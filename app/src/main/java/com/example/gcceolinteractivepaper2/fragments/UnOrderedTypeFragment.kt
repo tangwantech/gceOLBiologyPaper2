@@ -24,9 +24,8 @@ class UnOrderedTypeFragment : Fragment(), UnOrderedTypeRecyclerViewAdapter.OnIte
     private lateinit var viewModel: UnOrderedFragmentViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupViewModel()
         arguments?.let {
-            viewModel.setBundleIndices(it)
+            setupViewModel(it)
         }
     }
 
@@ -47,8 +46,13 @@ class UnOrderedTypeFragment : Fragment(), UnOrderedTypeRecyclerViewAdapter.OnIte
         setupObservers()
     }
 
-    private fun setupViewModel(){
+    fun getBinding(): FragmentUnOrderedTypeBinding{
+        return binding
+    }
+
+    private fun setupViewModel(bundle: Bundle){
         viewModel = ViewModelProvider(requireActivity())[UnOrderedFragmentViewModel::class.java]
+        viewModel.setBundleIndices(bundle)
     }
 
     private fun setupViews(){
@@ -59,28 +63,41 @@ class UnOrderedTypeFragment : Fragment(), UnOrderedTypeRecyclerViewAdapter.OnIte
     private fun setupListeners(){
 
         binding.btnDone.setOnClickListener {
+            evaluatedUserAnswer()
             displayCorrectionView()
         }
         binding.btnUndo.setOnClickListener {
-            viewModel.removePhraseFromUserAnswerForPoint()
-            val userAnswersAdapter = binding.rvUserAnswers.adapter as UnOrderedTypeRecyclerViewAdapter
-            userAnswersAdapter.notifyDataSetChanged()
-
-            refreshScrambledPhrasesRecyclerAdapter()
-
-
+            removePhraseFromUserAnswerForPoint()
         }
 
         binding.btnNextPoint.setOnClickListener {
-            viewModel.addEmptyPoint()
-            val adapter = binding.rvUserAnswers.adapter as UnOrderedTypeRecyclerViewAdapter
-            adapter.notifyDataSetChanged()
+            gotoNextPoint()
         }
+    }
+
+    private fun evaluatedUserAnswer(){
+        println("evaluateUserAnswer in UnOrderedFragment")
+        viewModel.evaluateUserAnswer()
+    }
+
+    private fun gotoNextPoint(){
+        viewModel.addEmptyPoint()
+        val adapter = binding.rvUserAnswers.adapter as UnOrderedTypeRecyclerViewAdapter
+        adapter.notifyDataSetChanged()
+    }
+
+
+    private fun removePhraseFromUserAnswerForPoint(){
+        viewModel.removePhraseFromUserAnswerForPoint()
+        val userAnswersAdapter = binding.rvUserAnswers.adapter as UnOrderedTypeRecyclerViewAdapter
+        userAnswersAdapter.notifyDataSetChanged()
+
+        refreshScrambledPhrasesRecyclerAdapter()
     }
 
     private fun setupObservers(){
         viewModel.userAnswersAvailable.observe(requireActivity()){
-            println(it)
+//            println(it)
             binding.btnNextPoint.isEnabled = it
             binding.btnUndo.isEnabled = it
             binding.btnDone.isEnabled = it
@@ -90,12 +107,8 @@ class UnOrderedTypeFragment : Fragment(), UnOrderedTypeRecyclerViewAdapter.OnIte
 
     private fun setupRecyclerViewForScrambledPhrases(){
         binding.rvScrambledPhrases.layoutManager = StaggeredGridLayoutManager(5, StaggeredGridLayoutManager.HORIZONTAL)
-//        binding.rvScrambledPhrases.layoutManager = LinearLayoutManager(requireContext()).apply {
-//            orientation = LinearLayoutManager.VERTICAL
-//        }
         binding.rvScrambledPhrases.setHasFixedSize(true)
         binding.rvScrambledPhrases.adapter = ScrambledPhrasesRecyclerAdapter(viewModel.getScrambledPhrases(), this)
-//        binding.rvScrambledPhrases.adapter?.notifyDataSetChanged()
     }
 
     private fun refreshScrambledPhrasesRecyclerAdapter(){
@@ -117,11 +130,19 @@ class UnOrderedTypeFragment : Fragment(), UnOrderedTypeRecyclerViewAdapter.OnIte
     }
 
     private fun displayCorrectionView(){
-        viewModel.evaluateUserAnswer()
+
         binding.cardTask.visibility = View.GONE
         binding.cardCorrection.visibility = View.VISIBLE
         setupUserResultRecyclerView()
         setupCorrectAnswersRecyclerView()
+    }
+
+    private fun evaluateUserAnswer(){
+        viewModel.evaluateUserAnswer()
+    }
+
+    private fun evaluateUserAnswerInOrder(){
+        viewModel.evaluateUserAnswerInOrder()
     }
 
     private fun setupUserResultRecyclerView(){
@@ -141,13 +162,6 @@ class UnOrderedTypeFragment : Fragment(), UnOrderedTypeRecyclerViewAdapter.OnIte
 
     }
 
-    companion object {
-        fun newInstance(bundle: Bundle) =
-            UnOrderedTypeFragment().apply {
-                arguments = bundle
-            }
-    }
-
     override fun onItemClick(position: Int, itemTitle: String) {
         viewModel.removeLastFromUserAnswerForPoint()
         val adapter = binding.rvUserAnswers.adapter as UnOrderedTypeRecyclerViewAdapter
@@ -165,4 +179,13 @@ class UnOrderedTypeFragment : Fragment(), UnOrderedTypeRecyclerViewAdapter.OnIte
         viewModel.removeFromScrambledPhrases(selectedPhrase)
         refreshScrambledPhrasesRecyclerAdapter()
     }
+
+    companion object {
+        fun newInstance(bundle: Bundle) =
+            UnOrderedTypeFragment().apply {
+                arguments = bundle
+            }
+    }
+
+
 }
