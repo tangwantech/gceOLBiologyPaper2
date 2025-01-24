@@ -34,7 +34,8 @@ class UnOrderedTypeRecyclerViewAdapter(private val data: List<String>, private v
             holder.binding.tvItemTitle.text = context.getString(R.string.item_title,
                 "${ position + 1 }", stringStartingWithUppercasedLetter)
         }else{
-            holder.binding.tvItemTitle.text = data[position]
+            holder.binding.tvItemTitle.text = context.getString(R.string.item_title,
+                "${ position + 1 }", data[position])
         }
 
     }

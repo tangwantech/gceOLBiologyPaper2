@@ -76,6 +76,8 @@ class DefinitionFragment : Fragment(), ScrambledPhrasesRecyclerAdapter.OnScrambl
         val userDefinitionInHtml = viewModel.getUserAnswerInHtml()
         binding.tvUserAnswer.text=
             Html.fromHtml(userDefinitionInHtml, Html.FROM_HTML_MODE_COMPACT)
+
+        binding.score.text = getString(R.string.score, viewModel.getScore().toString())
     }
 
     private fun displayCorrectionView(){

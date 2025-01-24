@@ -1,19 +1,24 @@
 package com.example.gcceolinteractivepaper2.viewmodels
 
 import android.os.Bundle
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.gcceolinteractivepaper2.AppConstants
 import com.example.gcceolinteractivepaper2.datamodels.QuestionData
 import com.example.gcceolinteractivepaper2.repository.LocalAppDataManager
 
-class ListItemViewModel: ViewModel() {
+open class ListItemViewModel: ViewModel() {
     private lateinit var questionData: QuestionData
     private val scrambledPhrases = ArrayList<String>()
     private lateinit var bundleIndices: Bundle
+    private val _isScrambledPhrasesEmpty = MutableLiveData<Boolean>()
+    val isScrambledPhrasesEmpty: LiveData<Boolean> = _isScrambledPhrasesEmpty
 
-    fun setBundleIndices(bundleIndices: Bundle) {
+    open fun setBundleIndices(bundleIndices: Bundle) {
         this.bundleIndices = bundleIndices
         setQuestionData()
+        setScrambledPhrases()
 
     }
 
@@ -26,13 +31,16 @@ class ListItemViewModel: ViewModel() {
 
     }
 
+    private fun setScrambledPhrases(){
+        scrambledPhrases.addAll(questionData.unOrderedType!!.distractors)
+        scrambledPhrases.shuffle()
+    }
+
     fun getQuestion(): String{
         return questionData.question
     }
 
     fun getScrambledPhrases(): ArrayList<String>{
-        scrambledPhrases.addAll(questionData.unOrderedType!!.distractors)
-        scrambledPhrases.shuffle()
         return scrambledPhrases
 
     }
@@ -49,9 +57,20 @@ class ListItemViewModel: ViewModel() {
     }
 
     fun removeFromScrambledPhrases(phrase: String){
-        if(phrase in scrambledPhrases){
-            scrambledPhrases.remove(phrase)
-        }
+        scrambledPhrases.remove(phrase)
+        updateIsScrambledPhrasesIsEmpty()
 
     }
+    private fun updateIsScrambledPhrasesIsEmpty(){
+        _isScrambledPhrasesEmpty.value = scrambledPhrases.isNotEmpty()
+    }
+    fun getQuestionData(): QuestionData{
+        return questionData
+    }
+    fun addListToScrambledPhrases(phrases: List<String>){
+        if (phrases.isNotEmpty()){
+            scrambledPhrases.addAll(phrases)
+        }
+    }
+
 }

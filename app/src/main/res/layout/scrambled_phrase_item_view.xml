@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:minHeight="56dp"
+
     android:foreground="?android:attr/selectableItemBackground">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardScrambledPhrase"
@@ -13,7 +14,7 @@
         app:cardElevation="4dp"
         android:layout_margin="4dp"
         app:cardCornerRadius="12dp"
-        app:cardBackgroundColor="@color/scramble_background">
+        >
         <TextView
             android:id="@+id/tvScrambledPhrase"
             android:layout_width="match_parent"
@@ -21,7 +22,8 @@
             android:gravity="center_vertical"
             android:textSize="14sp"
             android:paddingStart="4dp"
-            android:paddingEnd="4dp" />
+            android:paddingEnd="4dp"
+            />
     </androidx.cardview.widget.CardView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <Button
+        android:id="@+id/btnDone"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:text="@string/done"
+        android:enabled="false"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+    <Button
+        android:id="@+id/btnUndo"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:text="@string/undo"
+        android:enabled="false"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+    <Button
+        android:id="@+id/btnNextPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:text="@string/next_point"
+        android:enabled="false"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+</androidx.appcompat.widget.LinearLayoutCompat>

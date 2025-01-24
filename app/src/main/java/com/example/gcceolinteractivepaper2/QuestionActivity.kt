@@ -67,7 +67,7 @@ class QuestionActivity : AppCompatActivity() {
             }
 
             AppConstants.ORDERED_TYPE -> {
-//                gotoOrderedTypeFragment()
+                gotoOrderedTypeFragment()
             }
 
             AppConstants.DIFFERENTIATE -> {

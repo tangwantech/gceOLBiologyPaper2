@@ -10,9 +10,10 @@
         <item name="colorPrimaryVariant">@color/color_primary_variant</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorOnPrimary">@color/white</item>
-
+        <item name="android:windowBackground">@drawable/gradient_backgrounf</item>
         <item name="android:statusBarColor">@color/color_primary_variant</item>
         <item name="android:textViewStyle">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+        <item name="cardViewStyle">@style/CustomCardViewStyle</item>
     </style>
 
 
@@ -41,5 +42,9 @@
         <!--        <item name="tabSelectedTextColor">@color/color_on_primary</item>-->
         <item name="tabIndicatorHeight">4dp</item>
 
+    </style>
+
+    <style name="CustomCardViewStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/cardBackground</item> <!-- Replace with your desired color -->
     </style>
 </resources>

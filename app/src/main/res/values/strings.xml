@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CGCE OL Biology Paper2</string>
+    <string name="app_name">GCE OL Biology P2</string>
     <string name="your_revision_companion">Your revision companion</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="recycler_item_text">Item test text</string>
@@ -49,7 +49,7 @@
     <string name="sections_answered">Sections answered</string>
     <string name="tvPaperScore">Total Score</string>
     <string name="questions_answered">Questions answered</string>
-    <string name="score">Score:</string>
+    <string name="score">Score: %1$s</string>
     <string name="percentage">Percentage</string>
     <string name="wrong">Wrong</string>
     <string name="correct">Correct</string>
@@ -211,27 +211,9 @@
     <string name="spin_points">Spin points</string>
     <string name="bonus_time">Bonus time</string>
 
-
-    <string-array name="paper_instruction">
-        <item>contains</item>
-        <item>questions divided into</item>
-        <item>sections.</item>
-        <item>Please read and understand each question before selecting your answer. If you change your mind about a selected answer, you can always select another.</item>
-        <item>There is no option to go back to a previous question.</item>
-        <item>You must score at least</item>
-        <item>percent in order to see corrections to all wrong answers at the end of each section.</item>
-    </string-array>
-
     <string-array name="momo_partners">
         <item>MTN MOMO</item>
         <item>ORANGE MOMO</item>
     </string-array>
-    <string-array name="sections">
-        <item>section I</item>
-        <item>section II</item>
-        <item>section III</item>
-        <item>section IV</item>
-        <item>section V</item>
-        <item>section VI</item>
-    </string-array>
+
 </resources>

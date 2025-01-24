@@ -213,10 +213,12 @@
                             android:gravity="center_vertical"
                             android:textStyle="bold"/>
                         <FrameLayout
+                            android:id="@+id/frameTick"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toEndOf="@id/tvYourAnswerLabel"
-                            android:layout_marginStart="4dp">
+                            android:layout_marginStart="4dp"
+                            android:visibility="gone">
                             <ImageView
                                 android:id="@+id/imgTick"
                                 android:layout_width="wrap_content"
@@ -237,6 +239,13 @@
                                 android:scaleX="1.25"
                                 android:scaleY="1.25" />
                         </FrameLayout>
+                        <TextView
+                            android:id="@+id/score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/tvYourAnswerLabel"
+                            android:layout_marginStart="16dp"
+                            android:text="@string/score"/>
                     </RelativeLayout>
 
                     <androidx.cardview.widget.CardView

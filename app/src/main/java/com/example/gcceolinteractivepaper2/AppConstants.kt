@@ -127,5 +127,8 @@ class AppConstants {
         const val EXPERIMENT = "EXPERIMENT"
         const val GENETIC_CROSS = "GENETIC CROSS"
 
+        const val P_START = "<"
+        const val P_END = ">"
+
     }
 }

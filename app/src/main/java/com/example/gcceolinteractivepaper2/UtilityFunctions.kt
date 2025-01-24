@@ -24,5 +24,30 @@ class UtilityFunctions {
 
         }
 
+        fun transformListToHTML(paragraphs: List<ArrayList<String>>): String{
+            var body = ""
+            paragraphs.forEachIndexed { pIndex, strings ->
+                var phrases = "${pIndex + 1}. "
+                strings.forEachIndexed { index, phrase ->
+
+                    if (phrase.isNotEmpty()){
+
+                        phrases += if (index == 0) beginStringWithUpperCase(phrase) else " $phrase"
+                    }else{
+
+                    }
+                }
+                val paragraph = "<p>$phrases</p>"
+                body += paragraph
+
+            }
+
+            return body
+
+        }
+
+
     }
+
+
 }

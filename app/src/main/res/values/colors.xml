@@ -5,8 +5,8 @@
 <!--    <color name="color_primary">#009688</color>-->
 <!--    <color name="color_primary_variant">#00766B</color>-->
 
-    <color name="color_primary">#01766B</color>
-    <color name="color_primary_variant">#01766B</color>
+    <color name="color_primary">#2D4935</color>
+    <color name="color_primary_variant">#233828</color>
 
     <color name="colorAccent">#FFC107</color>
     <color name="color_on_primary">@color/white</color>
@@ -21,9 +21,12 @@
     <color name="colorTabIndicator">#FFC107</color>
     <color name="tab_color">#C8B263</color>
     <color name="scramble_background">#FAF9F9</color>
+    <color name="start">#568EB3</color>
+    <color name="end">#A3BAC8</color>
 
 <!--    <color name="def_item_background">#02766A</color>-->
 
     <color name="defIemBackground">@color/color_primary</color>
+    <color name="cardBackground">#f0f5f1</color>
 
 </resources>

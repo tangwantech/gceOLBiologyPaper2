@@ -5,41 +5,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.UnOrderedTypeFragment">
-
-    <androidx.cardview.widget.CardView
+    <include
         android:id="@+id/cardQuestion"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:contentPadding="8dp"
-        android:layout_margin="8dp"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginTop="8dp"
+        layout="@layout/question_layout"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:cardBackgroundColor="@color/color_primary">
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="56dp"
-                android:paddingStart="4dp"
-                android:paddingEnd="4dp">
-                <TextView
-                    android:id="@+id/tvQuestion"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text="Replace with question"
-                    android:textColor="@color/color_on_primary"/>
-            </androidx.appcompat.widget.LinearLayoutCompat>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.cardview.widget.CardView>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -77,41 +51,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </androidx.cardview.widget.CardView>
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <include layout="@layout/undo_btn_layout"
                     android:id="@+id/loUndoButton"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:orientation="horizontal"
+                    android:layout_height="56dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cardUserAnswers"
                     app:layout_constraintBottom_toTopOf="@id/loScrambledPhrases"
-                    app:layout_constraintVertical_weight=".1">
-                    <Button
-                        android:id="@+id/btnDone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".5"
-                        android:text="@string/done"
-                        android:enabled="false"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    <Button
-                        android:id="@+id/btnUndo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".5"
-                        android:text="@string/undo"
-                        android:enabled="false"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                    <Button
-                        android:id="@+id/btnNextPoint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".5"
-                        android:text="@string/next_point"
-                        android:enabled="false"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                    app:layout_constraintVertical_weight=".12"/>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/loScrambledPhrases"

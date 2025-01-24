@@ -12,8 +12,8 @@
               "type": "DEFINITION",
               "marksAllocated": 4,
               "definition": {
-                "correctAnswer": ["photosynthesis is the process by which green plants, some bacteria and protoctists", "manufacture carbohydrate such as glucose", "using carbon dioxide, water", "and sunlight energy trapped by chlorophyll,", "with the release of oxygen gas as a waste product."],
-                "distractors": ["photosynthesis is the process by which green plants, animals and fungi", "manufacture carbon dioxide and water", "using glucose and oxygen", "with the release of carbon dioxide as a waste product", "using sunlight energy trapped by stomata,"]
+                "correctAnswer": ["photosynthesis is the process by which", "green plants, some bacteria and protoctists", "manufacture carbohydrate such as glucose", "using carbon dioxide, water and", "sunlight energy trapped by chlorophyll,", "with the release of oxygen gas as a waste product"],
+                "distractors": ["photosynthesis is the process by which", "green plants, some bacteria and protoctists", "manufacture carbohydrate such as glucose", "using carbon dioxide, water and", "sunlight energy trapped by chlorophyll,", "with the release of oxygen gas as a waste product"]
               },
               "differentiate": null,
               "experiment": null,
@@ -31,7 +31,7 @@
               "experiment": null,
               "unOrderedType": {
                 "correctAnswer": ["the lamina of the leaf is broad and flat to offer a large surface area for the absorption of sunlight energy", "the cuticle is transparent to allow easy penetration of sunlight to the mesophyll cells", "the mesophyll cells contain chloroplasts with chlorophyll to absorb sunlight energy for photosynthesis", "there are numerous stomata on both surfaces of the leaf to allow for the exchange of carbon dioxide and oxygen with the atmosphere"],
-                "distractors": ["the upper surface of the leaf is opaque", "to allow easy penetration of sunlight to the mesophyll cells", "mesophyll cells lack chloroplast", "to allow sunlight to pass through to the stomata", "the lamina of the leaf is broad and flat", "to offer a large surface area for the absorption of sunlight energy", "the cuticle is transparent", "the mesophyll cells contain chloroplasts with chlorophyll", "to absorb sunlight energy for photosynthesis", "there are numerous stomata on both surfaces of the leaf", "to allow for the exchange of carbon dioxide and oxygen with the atmosphere"]
+                "distractors": ["to allow easy penetration of sunlight to the mesophyll cells", "to allow sunlight to pass through to the stomata", "the lamina of the leaf is broad and flat", "to offer a large surface area for the absorption of sunlight energy", "the cuticle is transparent", "the mesophyll cells contain chloroplasts with chlorophyll", "to absorb sunlight energy for photosynthesis", "there are numerous stomata on both surfaces of the leaf", "to allow for the exchange of carbon dioxide and oxygen with the atmosphere"]
               },
               "orderedType": null,
               "genetics": null,

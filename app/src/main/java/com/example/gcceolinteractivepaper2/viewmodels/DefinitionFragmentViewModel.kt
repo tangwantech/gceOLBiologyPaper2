@@ -4,7 +4,8 @@ import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.gcceolinteractivepaper2.AppConstants
-import com.example.gcceolinteractivepaper2.OrderedItemsMaker
+import com.example.gcceolinteractivepaper2.OrderedListMaker
+import com.example.gcceolinteractivepaper2.OrderedPhrasesInPointEvaluator
 import com.example.gcceolinteractivepaper2.UtilityFunctions
 import com.example.gcceolinteractivepaper2.datamodels.QuestionData
 import com.example.gcceolinteractivepaper2.repository.LocalAppDataManager
@@ -14,7 +15,8 @@ class DefinitionFragmentViewModel: ViewModel() {
     private lateinit var questionData: QuestionData
     private val scrambledPhrases = ArrayList<String>()
     private val userDefinition = ArrayList<String>()
-    private var orderedItemsMaker: OrderedItemsMaker? = null
+    private var orderedListMaker: OrderedListMaker? = null
+    private var orderedPhrasesInPointEvaluator: OrderedPhrasesInPointEvaluator? = null
 
     private val _userDefinitionString = MutableLiveData<String>()
     val userDefinitionString: MutableLiveData<String>
@@ -42,7 +44,7 @@ class DefinitionFragmentViewModel: ViewModel() {
     }
 
     private fun setupScrambledPhrases(){
-        scrambledPhrases.addAll(questionData.definition!!.distractors + questionData.definition!!.correctAnswer)
+        scrambledPhrases.addAll(questionData.definition!!.correctAnswer)
     }
 
     fun getScrambledPhrases(): ArrayList<String>{
@@ -79,35 +81,23 @@ class DefinitionFragmentViewModel: ViewModel() {
     }
 
     fun evaluateUserAnswer(): Boolean{
-//        convertUserDefinitionToHtml()
-        orderedItemsMaker = OrderedItemsMaker(userDefinition, questionData.definition!!.correctAnswer, questionData.marksAllocated)
-        println("Points: ${orderedItemsMaker!!.getPointsScored()}")
+//        val possibleCorrectAnswers = ArrayList<List<String>>(ArrayList())
+//        possibleCorrectAnswers.add(questionData.definition!!.correctAnswer)
+//        orderedListMaker = OrderedListMaker(userDefinition, possibleCorrectAnswers, questionData.marksAllocated)
+        orderedPhrasesInPointEvaluator = OrderedPhrasesInPointEvaluator(userDefinition, questionData.definition!!.correctAnswer).apply {
+            evaluate()
+        }
+//        println("Points: ${phraseInPointEvaluator!!.getEvaluatedPhrasesInHtml()}")
         return userDefinition == questionData.definition!!.correctAnswer
     }
 
-
-    fun getCorrectedUserDefinitionInHtml(): String{
-
-        var stringTemp = ""
-        for (phraseIndex in userDefinition.indices){
-
-            stringTemp += if(userDefinition[phraseIndex] == questionData.definition!!.correctAnswer[phraseIndex]){
-                "<span> ${userDefinition[phraseIndex]}</span>"
-            }else{
-                "<span style=\"color:red\">${userDefinition[phraseIndex]}</span>"
-            }
-        }
-//        println(stringTemp)
-        val final = "<p>$stringTemp</p>"
-        return stringTemp
-    }
-
-    fun getPointsScored(): Int{
-        return orderedItemsMaker!!.getPointsScored()
-    }
-
     fun getUserAnswerInHtml(): String{
-        return orderedItemsMaker!!.getUserAnswerInHtmlFormat()
+//        return orderedListMaker!!.getUserAnswerInHtmlFormat().userAnswerInHtml
+        return orderedPhrasesInPointEvaluator!!.getEvaluatedPhrasesInHtml()
+    }
+
+    fun getScore(): Int{
+        return orderedPhrasesInPointEvaluator!!.getPointsScored(questionData.marksAllocated)
     }
 
     fun getMarksAllocated(): String {

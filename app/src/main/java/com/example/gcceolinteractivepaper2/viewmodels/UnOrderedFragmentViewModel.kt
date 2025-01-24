@@ -1,79 +1,32 @@
 package com.example.gcceolinteractivepaper2.viewmodels
 
-import android.os.Bundle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.gcceolinteractivepaper2.AppConstants
+
 import com.example.gcceolinteractivepaper2.datamodels.ItemAndRemarkData
-import com.example.gcceolinteractivepaper2.datamodels.QuestionData
-import com.example.gcceolinteractivepaper2.repository.LocalAppDataManager
 
-open class UnOrderedFragmentViewModel: ViewModel() {
-    private lateinit var bundleIndices: Bundle
-    private lateinit var questionData: QuestionData
-    private val scrambledPhrases = ArrayList<String>()
+class UnOrderedFragmentViewModel: ListItemViewModel() {
     private val userAnswers = ArrayList<String>()
-
-    private val userAnswerForPoint: ArrayList<ArrayList<String>> = ArrayList()
-
+    private val pointsInUserAnswer: ArrayList<ArrayList<String>> = ArrayList()
     private val _userAnswersAvailable = MutableLiveData(false)
     val userAnswersAvailable: LiveData<Boolean> = _userAnswersAvailable
-
-//    private val _userAnswersForPointAvailable = MutableLiveData(false)
-//    val userAnswersForPointAvailable: LiveData<Boolean> = _userAnswersForPointAvailable
-
     private var currentLineIndex = 0
-
-
     private val userResult = ArrayList<ItemAndRemarkData>()
-
-
-    open fun setBundleIndices(bundleIndices: Bundle) {
-
-        this.bundleIndices = bundleIndices
-        setQuestionData()
-
-    }
-
-    private fun setQuestionData() {
-        questionData = LocalAppDataManager.getQuestionDataAt(
-            bundleIndices.getInt(AppConstants.EXAM_TYPE_INDEX),
-            bundleIndices.getInt(AppConstants.EXAM_TYPE_CONTENT_ITEM_INDEX),
-            bundleIndices.getInt(AppConstants.QUESTION_INDEX)
-        )
-
-    }
-
-
-    fun getQuestion(): String{
-        return questionData.question
-    }
-
-
-    fun getScrambledPhrases(): ArrayList<String>{
-        scrambledPhrases.addAll(questionData.unOrderedType!!.distractors)
-        scrambledPhrases.shuffle()
-        return scrambledPhrases
-
-
-    }
 
     fun evaluateUserAnswer(){
         for (userAnswer in userAnswers ){
-            if (userAnswer in questionData.unOrderedType!!.correctAnswer){
+            if (userAnswer in getQuestionData().unOrderedType!!.correctAnswer){
                 userResult.add(ItemAndRemarkData(userAnswer, true))
             }else{
                 userResult.add(ItemAndRemarkData(userAnswer, false))
             }
         }
-
     }
 
     fun evaluateUserAnswerInOrder() {
 
         userAnswers.forEachIndexed { index, userAnswer ->
-            if (userAnswer == questionData.unOrderedType!!.correctAnswer[index]){
+            if (userAnswer == getQuestionData().unOrderedType!!.correctAnswer[index]){
                 userResult.add(ItemAndRemarkData(userAnswer, true))
             }else{
                 userResult.add(ItemAndRemarkData(userAnswer, false))
@@ -87,22 +40,18 @@ open class UnOrderedFragmentViewModel: ViewModel() {
 
     }
 
-    fun getCorrectAnswers(): List<String>{
-        return questionData.unOrderedType!!.correctAnswer
-    }
-
-    fun addPhraseToUserAnswerForPoint(position: Int){
+    fun addPhraseToPointForAnswer(position: Int){
         if (userAnswers.isEmpty()){
             val point = ArrayList<String>()
             point.add("")
-            userAnswerForPoint.add(point)
+            pointsInUserAnswer.add(point)
         }
-        val phrase = scrambledPhrases[position]
-        if(userAnswerForPoint[currentLineIndex].first() == ""){
-            userAnswerForPoint[currentLineIndex][0] = phrase
+        val phrase = getScrambledPhrases()[position]
+        if(pointsInUserAnswer[currentLineIndex].first() == ""){
+            pointsInUserAnswer[currentLineIndex][0] = phrase
 
         }else{
-            userAnswerForPoint[currentLineIndex].add(phrase)
+            pointsInUserAnswer[currentLineIndex].add(phrase)
         }
         updateUserAnswers()
         updateUserAnswersAvailable()
@@ -110,10 +59,10 @@ open class UnOrderedFragmentViewModel: ViewModel() {
     }
 
     fun removePhraseFromUserAnswerForPoint(){
-        if (userAnswerForPoint.isNotEmpty() ){
-            removeLastItemFromLastListInUserAnswerForPoint()
-            if(userAnswerForPoint.last().isEmpty()){
-                removeLastListItemInUserAnswerForPoints()
+        if (pointsInUserAnswer.isNotEmpty() ){
+            removeLastPhraseFromLastPoint()
+            if(pointsInUserAnswer.last().isEmpty()){
+                removeLastPoint()
             }
 
         }else{
@@ -125,15 +74,15 @@ open class UnOrderedFragmentViewModel: ViewModel() {
 
     }
     
-    private fun removeLastItemFromLastListInUserAnswerForPoint(){
-        if(userAnswerForPoint.last().isNotEmpty()){
-            val phrase = userAnswerForPoint.last().removeLast()
+    private fun removeLastPhraseFromLastPoint(){
+        if(pointsInUserAnswer.last().isNotEmpty()){
+            val phrase = pointsInUserAnswer.last().removeLast()
             addToScrambledPhrases(phrase)
         }
     }
 
-    private fun removeLastListItemInUserAnswerForPoints(){
-        userAnswerForPoint.removeLast()
+    private fun removeLastPoint(){
+        pointsInUserAnswer.removeLast()
         removeLastFromUserAnswers()
         decrementCurrentLineIndex()
         if (currentLineIndex < 0){
@@ -150,7 +99,7 @@ open class UnOrderedFragmentViewModel: ViewModel() {
     }
 
     private fun updateUserAnswers(){
-        for (point in userAnswerForPoint){
+        for (point in pointsInUserAnswer){
             val item = point.joinToString(separator = " ")
             if (userAnswers.isEmpty()){
                 userAnswers.add(item)
@@ -161,8 +110,8 @@ open class UnOrderedFragmentViewModel: ViewModel() {
 
     }
 
-    fun removeLastFromUserAnswerForPoint(){
-        val lastList = userAnswerForPoint.removeLast()
+    fun removeLastPointFromPointsInUserAnswer(){
+        val lastList = pointsInUserAnswer.removeLast()
         addListToScrambledPhrases(lastList)
         removeLastFromUserAnswers()
         currentLineIndex -= 1
@@ -177,11 +126,14 @@ open class UnOrderedFragmentViewModel: ViewModel() {
     }
 
     fun addEmptyPoint(){
-        userAnswers.add("")
-        val point = ArrayList<String>()
-        point.add("")
-        userAnswerForPoint.add(point)
-        currentLineIndex += 1
+        if (userAnswers[currentLineIndex].isNotEmpty()){
+            userAnswers.add("")
+            val point = ArrayList<String>()
+            point.add("")
+            pointsInUserAnswer.add(point)
+            currentLineIndex += 1
+        }
+
     }
 
     private fun updateUserAnswersAvailable(){
@@ -191,24 +143,9 @@ open class UnOrderedFragmentViewModel: ViewModel() {
     fun getUserAnswers(): ArrayList<String>{
         return userAnswers
     }
-    private fun addToScrambledPhrases(phrase: String){
-        if (phrase !in scrambledPhrases){
-            scrambledPhrases.add(phrase)
-        }
 
-    }
-    fun removeFromScrambledPhrases(phrase: String){
-        if (scrambledPhrases.isNotEmpty()){
-            scrambledPhrases.remove(phrase)
-        }
 
-    }
 
-    private fun addListToScrambledPhrases(phrases: List<String>){
-        if (phrases.isNotEmpty()){
-            scrambledPhrases.addAll(phrases)
-        }
-    }
 
 
 }

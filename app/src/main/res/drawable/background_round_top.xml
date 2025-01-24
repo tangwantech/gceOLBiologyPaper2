@@ -3,6 +3,9 @@
     android:shape="rectangle">
     <solid
         android:color="@color/white"/>
+    <gradient
+        android:startColor="@color/cardBackground"
+        android:endColor="@color/scramble_background"/>
     <corners
         android:topRightRadius="72dp"
         android:topLeftRadius="72dp"/>
