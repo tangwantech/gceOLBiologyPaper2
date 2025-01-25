@@ -31,10 +31,10 @@ class OrderedPhrasesInPointEvaluator(private val phrasesToEvaluate: List<String>
         return evaluatedPhraseInHtml
     }
 
-    fun getPointsScored(markAllocated: Int): Int{
-        var score: Int = 0
+    fun getPointsScored(markAllocated: Int): Double{
+        var score: Double = 0.0
         if (markAllocated > 0){
-            score = ((points.toDouble() / correctAnswerPhrase.size) * markAllocated).roundToInt()
+            score = ((points.toDouble() / correctAnswerPhrase.size) * markAllocated)
         }
         return score
     }

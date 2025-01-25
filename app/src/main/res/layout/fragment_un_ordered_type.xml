@@ -113,7 +113,15 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/your_answers"
                                 android:gravity="center_vertical"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tvScore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_16"
+                                android:text="@string/score"
+                                android:textStyle="bold"
+                                android:layout_toEndOf="@id/tvYourAnswerLabel"/>
                         </RelativeLayout>
 
                         <androidx.cardview.widget.CardView

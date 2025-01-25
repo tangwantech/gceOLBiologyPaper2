@@ -2,8 +2,10 @@ package com.example.gcceolinteractivepaper2.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.gcceolinteractivepaper2.UnorderedPointsEvaluator
 
 import com.example.gcceolinteractivepaper2.datamodels.ItemAndRemarkData
+import kotlin.math.roundToInt
 
 class UnOrderedFragmentViewModel: ListItemViewModel() {
     private val userAnswers = ArrayList<String>()
@@ -12,31 +14,40 @@ class UnOrderedFragmentViewModel: ListItemViewModel() {
     val userAnswersAvailable: LiveData<Boolean> = _userAnswersAvailable
     private var currentLineIndex = 0
     private val userResult = ArrayList<ItemAndRemarkData>()
+    private var unorderedPointsEvaluator: UnorderedPointsEvaluator? = null
 
+//    fun evaluateUserAnswer(){
+//        for (userAnswer in userAnswers ){
+//            if (userAnswer in getQuestionData().unOrderedType!!.correctAnswer){
+//                userResult.add(ItemAndRemarkData(userAnswer, true))
+//            }else{
+//                userResult.add(ItemAndRemarkData(userAnswer, false))
+//            }
+//        }
+//    }
+
+//    fun evaluateUserAnswerInOrder() {
+//
+//        userAnswers.forEachIndexed { index, userAnswer ->
+//            if (userAnswer == getQuestionData().unOrderedType!!.correctAnswer[index]){
+//                userResult.add(ItemAndRemarkData(userAnswer, true))
+//            }else{
+//                userResult.add(ItemAndRemarkData(userAnswer, false))
+//            }
+//        }
+//
+//    }
     fun evaluateUserAnswer(){
-        for (userAnswer in userAnswers ){
-            if (userAnswer in getQuestionData().unOrderedType!!.correctAnswer){
-                userResult.add(ItemAndRemarkData(userAnswer, true))
-            }else{
-                userResult.add(ItemAndRemarkData(userAnswer, false))
-            }
-        }
+        unorderedPointsEvaluator = UnorderedPointsEvaluator(getCorrectAnswers(), pointsInUserAnswer).apply { evaluate() }
+//        println("Score: ${getScore(4)}")
     }
 
-    fun evaluateUserAnswerInOrder() {
-
-        userAnswers.forEachIndexed { index, userAnswer ->
-            if (userAnswer == getQuestionData().unOrderedType!!.correctAnswer[index]){
-                userResult.add(ItemAndRemarkData(userAnswer, true))
-            }else{
-                userResult.add(ItemAndRemarkData(userAnswer, false))
-            }
-        }
-
+    fun getScore(): Double{
+        return unorderedPointsEvaluator!!.getScore(getQuestionData().marksAllocated)
     }
 
-    fun getUserResult(): ArrayList<ItemAndRemarkData>{
-        return userResult
+    fun getUserResult(): List<ItemAndRemarkData>{
+        return unorderedPointsEvaluator!!.getUserPointsInInHtmlFormat()
 
     }
 
@@ -126,7 +137,7 @@ class UnOrderedFragmentViewModel: ListItemViewModel() {
     }
 
     fun addEmptyPoint(){
-        if (userAnswers[currentLineIndex].isNotEmpty()){
+        if (pointsInUserAnswer[currentLineIndex].isNotEmpty()){
             userAnswers.add("")
             val point = ArrayList<String>()
             point.add("")
@@ -137,8 +148,10 @@ class UnOrderedFragmentViewModel: ListItemViewModel() {
     }
 
     private fun updateUserAnswersAvailable(){
-        _userAnswersAvailable.value = userAnswers.isNotEmpty()
+//        _userAnswersAvailable.value = userAnswers.isNotEmpty()
+        _userAnswersAvailable.value = pointsInUserAnswer.isNotEmpty()
     }
+
 
     fun getUserAnswers(): ArrayList<String>{
         return userAnswers

@@ -1,8 +1,10 @@
 package com.example.gcceolinteractivepaper2.adapters
 
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gcceolinteractivepaper2.UtilityFunctions
 import com.example.gcceolinteractivepaper2.databinding.ItemAndRemarkBinding
@@ -24,7 +26,7 @@ class ItemAndRemarkRecyclerAdapter(private val userAnswers: List<ItemAndRemarkDa
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = UtilityFunctions.beginStringWithUpperCase(userAnswers[position].itemTitle)
-        holder.binding.tvItemTitle.text = item
+        holder.binding.tvItemTitle.text = Html.fromHtml(item, Html.FROM_HTML_MODE_COMPACT)
         if(userAnswers[position].remark){
             holder.binding.imgTick.visibility = View.VISIBLE
         }else{

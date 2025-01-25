@@ -138,6 +138,7 @@ class UnOrderedTypeFragment : Fragment(), UnOrderedTypeRecyclerViewAdapter.OnIte
         binding.cardCorrection.visibility = View.VISIBLE
         setupUserResultRecyclerView()
         setupCorrectAnswersRecyclerView()
+        binding.tvScore.text = getString(R.string.score, "${viewModel.getScore()}")
     }
 
     private fun setupUserResultRecyclerView(){
@@ -153,7 +154,7 @@ class UnOrderedTypeFragment : Fragment(), UnOrderedTypeRecyclerViewAdapter.OnIte
             orientation = LinearLayoutManager.VERTICAL
         }
         binding.rvCorrectAnswer.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
-        binding.rvCorrectAnswer.adapter = SimpleRecyclerAdapter2(viewModel.getCorrectAnswers())
+        binding.rvCorrectAnswer.adapter = SimpleRecyclerAdapter2(viewModel.getCorrectAnswersAsSingleList())
 
     }
 

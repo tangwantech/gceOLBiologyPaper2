@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.gcceolinteractivepaper2.AppConstants
+import com.example.gcceolinteractivepaper2.UtilityFunctions
 import com.example.gcceolinteractivepaper2.datamodels.QuestionData
 import com.example.gcceolinteractivepaper2.repository.LocalAppDataManager
 
@@ -32,7 +33,13 @@ open class ListItemViewModel: ViewModel() {
     }
 
     private fun setScrambledPhrases(){
-        scrambledPhrases.addAll(questionData.unOrderedType!!.distractors)
+        questionData.unOrderedType!!.correctAnswer.forEach { point ->
+            point.forEach{phrase ->
+                scrambledPhrases.add(phrase)
+            }
+
+        }
+//        scrambledPhrases.addAll(questionData.unOrderedType!!.distractors)
         scrambledPhrases.shuffle()
     }
 
@@ -45,8 +52,12 @@ open class ListItemViewModel: ViewModel() {
 
     }
 
-    fun getCorrectAnswers(): List<String>{
+    fun getCorrectAnswers(): List<List<String>>{
         return questionData.unOrderedType!!.correctAnswer
+    }
+
+    fun getCorrectAnswersAsSingleList(): List<String>{
+        return UtilityFunctions.transformToSingleListItem(questionData.unOrderedType!!.correctAnswer)
     }
 
     fun addToScrambledPhrases(phrase: String){

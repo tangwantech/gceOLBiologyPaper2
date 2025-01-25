@@ -9,6 +9,7 @@ import com.example.gcceolinteractivepaper2.OrderedPhrasesInPointEvaluator
 import com.example.gcceolinteractivepaper2.UtilityFunctions
 import com.example.gcceolinteractivepaper2.datamodels.QuestionData
 import com.example.gcceolinteractivepaper2.repository.LocalAppDataManager
+import kotlin.math.roundToInt
 
 class DefinitionFragmentViewModel: ViewModel() {
     private lateinit var bundleIndices: Bundle
@@ -97,7 +98,7 @@ class DefinitionFragmentViewModel: ViewModel() {
     }
 
     fun getScore(): Int{
-        return orderedPhrasesInPointEvaluator!!.getPointsScored(questionData.marksAllocated)
+        return orderedPhrasesInPointEvaluator!!.getPointsScored(questionData.marksAllocated).roundToInt()
     }
 
     fun getMarksAllocated(): String {

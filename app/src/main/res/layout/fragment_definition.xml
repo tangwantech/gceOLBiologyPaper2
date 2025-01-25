@@ -245,7 +245,8 @@
                             android:layout_height="wrap_content"
                             android:layout_toEndOf="@id/tvYourAnswerLabel"
                             android:layout_marginStart="16dp"
-                            android:text="@string/score"/>
+                            android:text="@string/score"
+                            android:textStyle="bold"/>
                     </RelativeLayout>
 
                     <androidx.cardview.widget.CardView
